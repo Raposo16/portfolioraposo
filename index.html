@@ -104,6 +104,37 @@ body{position:relative}
 @keyframes gira{to{transform:rotate(360deg)}}
 main,footer{position:relative;z-index:1}
 
+/* idioma: seletor no topo e pergunta na entrada */
+.lang-switch{display:flex;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(250,248,243,.5)}
+.lang-switch button{height:32px;min-width:34px;padding:0 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--mut);transition:background .2s,color .2s}
+.lang-switch button:hover{color:var(--ink)}
+.lang-switch button.on{background:var(--ink);color:var(--paper)}
+html.i18n-wait body{opacity:0}
+.lang-gate{display:none;position:fixed;inset:0;z-index:90;place-items:center;padding:16px;overflow:auto;background:rgba(243,239,230,.55);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);transition:opacity .45s var(--ease)}
+html.needs-gate .lang-gate{display:grid}
+.lang-gate.out{opacity:0}
+body.gate{overflow:hidden}
+body.gate .mobile-cta{opacity:0;pointer-events:none}
+.lg-box{position:relative;width:min(760px,100%);padding:clamp(28px,5vw,56px);border-radius:28px;background:var(--glass);border:1px solid var(--glass-line);box-shadow:0 30px 80px rgba(40,30,10,.14);animation:lgIn .7s var(--ease) both}
+.lg-frame{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);pointer-events:none;color:var(--ink);opacity:.3}
+.lg-q{margin:14px 0 30px;font-weight:400}
+.lg-q span{display:block;font-family:var(--serif);font-size:clamp(30px,5.2vw,54px);line-height:1.06;letter-spacing:-.01em;animation:lgLine .7s var(--ease) both}
+.lg-q span:nth-child(2){color:#5b5547;font-style:italic;animation-delay:.1s}
+.lg-q span:nth-child(3){color:var(--mut);animation-delay:.2s}
+.lg-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lg-opts button{position:relative;text-align:left;display:flex;flex-direction:column;gap:6px;padding:20px 18px;border-radius:18px;background:var(--paper);border:1px solid var(--line);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;animation:lgLine .6s var(--ease) both}
+.lg-opts button:nth-child(1){animation-delay:.28s}.lg-opts button:nth-child(2){animation-delay:.36s}.lg-opts button:nth-child(3){animation-delay:.44s}
+.lg-opts b{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,32px);line-height:1.05;margin-top:18px}
+.lg-opts span{font-size:13px;color:var(--mut)}
+.lg-opts i{position:absolute;top:14px;left:18px;font-style:normal;font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.lg-opts button:hover,.lg-opts button:focus-visible{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 14px 30px rgba(40,30,10,.1);outline:none}
+.lg-opts button:active{transform:scale(.98)}
+.lg-opts button.sug{border-color:var(--ink)}
+.lg-opts button.sug i{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.lg-note{margin-top:22px;font-size:12px;color:var(--mut);line-height:1.6}
+@keyframes lgIn{from{opacity:0;transform:translateY(18px) scale(.985)}}
+@keyframes lgLine{from{opacity:0;transform:translateY(10px)}}
+
 /* seções */
 section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
 .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap}
@@ -262,6 +293,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .contact .row{grid-template-columns:1fr}
 }
 @media (max-width:720px){
+  .lang-switch button{height:30px;min-width:30px;padding:0 6px;font-size:10px}
+  .nav{padding-left:16px;gap:6px}
+  .lg-opts{grid-template-columns:1fr;gap:8px}
+  .lg-opts button{flex-direction:row;align-items:baseline;gap:12px;padding:16px 16px 16px 64px}
+  .lg-opts i{top:50%;translate:0 -50%;left:16px}
+  .lg-opts b{margin-top:0;font-size:26px}
+  .lg-q{margin-bottom:22px}
   .sd{opacity:.09;scale:.7}
   .sd-l{left:-26px}.sd-r{right:-26px}
   .rail-l{left:3px}.rail-r{right:3px}
@@ -299,6 +337,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .rv{opacity:1;transform:none}
 }
 </style>
+<script>
+(function(){var h=document.documentElement,q,s;try{q=new URLSearchParams(location.search).get("lang");s=localStorage.getItem("lang")}catch(e){}
+var ok=function(x){return x==="pt"||x==="en"||x==="es"},l=ok(q)?q:ok(s)?s:null;
+if(!l)h.classList.add("needs-gate");else if(l!=="pt"){h.classList.add("i18n-wait");setTimeout(function(){h.classList.remove("i18n-wait")},1500)}})();
+</script>
 </head>
 <body>
 
@@ -317,12 +360,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="sd sd-r" style="top:89%;width:76px;rotate:7deg" data-depth="12" data-speed="-0.04"><svg viewBox="0 0 90 80" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="28" width="78" height="46" rx="4"/><path d="M6 28l4-18h76l-4 18M22 10l-6 18M40 10l-6 18M58 10l-6 18M76 10l-6 18"/><path d="M16 44h30M16 54h22M16 64h40" stroke-width=".8"/><text x="60" y="62">23</text></svg></div>
 </div>
 
+<div class="lang-gate" id="lang-gate" role="dialog" aria-modal="true" aria-labelledby="lg-q">
+  <div class="lg-box">
+    <svg class="lg-frame" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 9V0H9M91 0H100V9M100 91V100H91M9 100H0V91"/></svg>
+    <p class="eyebrow">Felipe Raposo · Raposo Prod.</p>
+    <h2 class="lg-q" id="lg-q"><span lang="pt-BR">Qual idioma você fala?</span><span lang="en">Which language do you speak?</span><span lang="es">¿Qué idioma hablas?</span></h2>
+    <div class="lg-opts">
+      <button data-pick="pt" lang="pt-BR"><i>PT</i><b>Português</b><span>Continuar em português →</span></button>
+      <button data-pick="en" lang="en"><i>EN</i><b>English</b><span>Continue in English →</span></button>
+      <button data-pick="es" lang="es"><i>ES</i><b>Español</b><span>Continuar en español →</span></button>
+    </div>
+    <p class="lg-note">Dá para trocar depois no topo da página · You can switch anytime at the top · Puedes cambiarlo arriba cuando quieras</p>
+  </div>
+</div>
+
 <header class="nav">
   <a class="name" href="#" data-home>Felipe Raposo</a>
   <nav>
-    <a href="#trabalhos">Trabalhos</a>
-    <a href="#sobre">Sobre</a>
-    <a class="btn" href="#contato">Contato</a>
+    <a href="#trabalhos" data-i18n="nav.work">Trabalhos</a>
+    <a href="#sobre" data-i18n="nav.about">Sobre</a>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma"><button data-lang="pt" lang="pt-BR">PT</button><button data-lang="en" lang="en">EN</button><button data-lang="es" lang="es">ES</button></div>
+    <a class="btn" href="#contato" data-i18n="nav.contact">Contato</a>
   </nav>
 </header>
 
@@ -337,12 +395,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </svg>
     <div class="grid">
       <div>
-        <p class="eyebrow rv">Editor de vídeo · Nômade digital</p>
-        <h1 class="serif rv">Edito vídeos <em>desde os 16.</em></h1>
-        <p class="lead rv">Pego o material bruto e devolvo o vídeo pronto, no estilo do seu canal. Trabalho com YouTubers de viagem, canais infantis e vlogs, e faço publicidade, thumbnails, vídeos de imóveis e imagens de drone.</p>
+        <p class="eyebrow rv" data-i18n="hero.eyebrow">Editor de vídeo · Nômade digital</p>
+        <h1 class="serif rv" data-i18n="hero.h1">Edito vídeos <em>desde os 16.</em></h1>
+        <p class="lead rv" data-i18n="hero.lead">Pego o material bruto e devolvo o vídeo pronto, no estilo do seu canal. Trabalho com YouTubers de viagem, canais infantis e vlogs, e faço publicidade, thumbnails, vídeos de imóveis e imagens de drone.</p>
         <div class="ctas rv">
-          <a class="btn" href="#contato" data-contact>Falar comigo <span class="arr">→</span></a>
-          <a class="btn line" href="#trabalhos">Ver trabalhos</a>
+          <a class="btn" href="#contato" data-contact data-i18n="hero.cta">Falar comigo <span class="arr">→</span></a>
+          <a class="btn line" href="#trabalhos" data-i18n="hero.cta2">Ver trabalhos</a>
         </div>
       </div>
       <div class="portrait-wrap rv">
@@ -363,9 +421,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <section id="trabalhos">
     <div class="wrap">
       <div class="head rv">
-        <h2 class="serif">Trabalhos</h2>
+        <h2 class="serif" data-i18n="work.h2">Trabalhos</h2>
         <svg class="deco deco-wave" data-depth="-8" viewBox="0 0 300 48" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true"><path d="M2 19.0V29.0M7 17.9V30.1M12 15.7V32.3M17 16.0V32.0M22 15.7V32.3M27 15.0V33.0M32 14.8V33.2M37 13.5V34.5M42 9.0V39.0M47 8.0V40.0M52 8.0V40.0M57 11.1V36.9M62 8.9V39.1M67 14.2V33.8M72 9.4V38.6M77 13.3V34.7M82 15.9V32.1M87 15.1V32.9M92 16.9V31.1M97 15.0V33.0M102 17.4V30.6M107 19.4V28.6M112 19.2V28.8M117 19.9V28.1M122 16.7V31.3M127 18.4V29.6M132 17.1V30.9M137 17.9V30.1M142 18.8V29.2M147 17.5V30.5M152 17.6V30.4M157 19.0V29.0M162 14.5V33.5M167 16.7V31.3M172 14.7V33.3M177 15.3V32.7M182 11.9V36.1M187 16.1V31.9M192 16.6V31.4M197 16.6V31.4M202 14.7V33.3M207 12.5V35.5M212 15.2V32.8M217 13.5V34.5M222 18.0V30.0M227 15.6V32.4M232 19.5V28.5M237 16.1V31.9M242 17.7V30.3M247 14.6V33.4M252 13.2V34.8M257 9.6V38.4M262 12.2V35.8M267 8.0V40.0M272 13.5V34.5M277 5.8V42.2M282 8.6V39.4M287 8.2V39.8M292 4.3V43.7M297 10.4V37.6"/><path d="M0 24H300" stroke-dasharray="2 4"/></svg>
-        <p>Escolha uma área para ver os projetos.</p>
+        <p data-i18n="work.p">Escolha uma área para ver os projetos.</p>
       </div>
       <ol class="cats" id="cats"></ol>
     </div>
@@ -375,12 +433,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="wrap">
       <div class="about">
         <div class="txt">
-          <p class="eyebrow rv">Sobre mim</p>
-          <h2 class="serif rv">Trabalho de onde <em>eu estiver.</em></h2>
-          <p class="rv">Sou o Felipe, editor de vídeo e nômade digital. Trabalho de diferentes partes do mundo, e a edição vai comigo para onde eu for.</p>
-          <p class="rv">Comecei aos 16 anos editando para YouTubers de nichos diferentes. Hoje uso as principais ferramentas de edição e adapto o estilo às referências que cada cliente me mostra.</p>
-          <p class="rv">Como tudo acontece online, o processo é o mesmo em qualquer país: você manda os arquivos pelo Google Drive, eu edito e entrego o vídeo pronto. Se quiser, também cuido do título, da thumbnail e da publicação no canal.</p>
-          <p class="rv">Para imóveis, filmo com iPhone 17 Pro e drone DJI Mini 5 Pro, na Barra da Tijuca e na Zona Sul do Rio, e faço a edição.</p>
+          <p class="eyebrow rv" data-i18n="about.eyebrow">Sobre mim</p>
+          <h2 class="serif rv" data-i18n="about.h2">Trabalho de onde <em>eu estiver.</em></h2>
+          <p class="rv" data-i18n="about.p1">Sou o Felipe, editor de vídeo e nômade digital. Trabalho de diferentes partes do mundo, e a edição vai comigo para onde eu for.</p>
+          <p class="rv" data-i18n="about.p2">Comecei aos 16 anos editando para YouTubers de nichos diferentes. Hoje uso as principais ferramentas de edição e adapto o estilo às referências que cada cliente me mostra.</p>
+          <p class="rv" data-i18n="about.p3">Como tudo acontece online, o processo é o mesmo em qualquer país: você manda os arquivos pelo Google Drive, eu edito e entrego o vídeo pronto. Se quiser, também cuido do título, da thumbnail e da publicação no canal.</p>
+          <p class="rv" data-i18n="about.p4">Para imóveis, filmo com iPhone 17 Pro e drone DJI Mini 5 Pro, na Barra da Tijuca e na Zona Sul do Rio, e faço a edição.</p>
         </div>
         <div class="collage-wrap">
           <svg class="deco deco-film" data-depth="-14" data-speed=".04" viewBox="0 0 560 90" fill="none" stroke="currentColor" aria-hidden="true"><rect x="0.5" y="0.5" width="559" height="89" rx="6"/><rect x="8" y="6" width="9" height="7" rx="1.5"/><rect x="8" y="77" width="9" height="7" rx="1.5"/><rect x="30" y="6" width="9" height="7" rx="1.5"/><rect x="30" y="77" width="9" height="7" rx="1.5"/><rect x="52" y="6" width="9" height="7" rx="1.5"/><rect x="52" y="77" width="9" height="7" rx="1.5"/><rect x="74" y="6" width="9" height="7" rx="1.5"/><rect x="74" y="77" width="9" height="7" rx="1.5"/><rect x="96" y="6" width="9" height="7" rx="1.5"/><rect x="96" y="77" width="9" height="7" rx="1.5"/><rect x="118" y="6" width="9" height="7" rx="1.5"/><rect x="118" y="77" width="9" height="7" rx="1.5"/><rect x="140" y="6" width="9" height="7" rx="1.5"/><rect x="140" y="77" width="9" height="7" rx="1.5"/><rect x="162" y="6" width="9" height="7" rx="1.5"/><rect x="162" y="77" width="9" height="7" rx="1.5"/><rect x="184" y="6" width="9" height="7" rx="1.5"/><rect x="184" y="77" width="9" height="7" rx="1.5"/><rect x="206" y="6" width="9" height="7" rx="1.5"/><rect x="206" y="77" width="9" height="7" rx="1.5"/><rect x="228" y="6" width="9" height="7" rx="1.5"/><rect x="228" y="77" width="9" height="7" rx="1.5"/><rect x="250" y="6" width="9" height="7" rx="1.5"/><rect x="250" y="77" width="9" height="7" rx="1.5"/><rect x="272" y="6" width="9" height="7" rx="1.5"/><rect x="272" y="77" width="9" height="7" rx="1.5"/><rect x="294" y="6" width="9" height="7" rx="1.5"/><rect x="294" y="77" width="9" height="7" rx="1.5"/><rect x="316" y="6" width="9" height="7" rx="1.5"/><rect x="316" y="77" width="9" height="7" rx="1.5"/><rect x="338" y="6" width="9" height="7" rx="1.5"/><rect x="338" y="77" width="9" height="7" rx="1.5"/><rect x="360" y="6" width="9" height="7" rx="1.5"/><rect x="360" y="77" width="9" height="7" rx="1.5"/><rect x="382" y="6" width="9" height="7" rx="1.5"/><rect x="382" y="77" width="9" height="7" rx="1.5"/><rect x="404" y="6" width="9" height="7" rx="1.5"/><rect x="404" y="77" width="9" height="7" rx="1.5"/><rect x="426" y="6" width="9" height="7" rx="1.5"/><rect x="426" y="77" width="9" height="7" rx="1.5"/><rect x="448" y="6" width="9" height="7" rx="1.5"/><rect x="448" y="77" width="9" height="7" rx="1.5"/><rect x="470" y="6" width="9" height="7" rx="1.5"/><rect x="470" y="77" width="9" height="7" rx="1.5"/><rect x="492" y="6" width="9" height="7" rx="1.5"/><rect x="492" y="77" width="9" height="7" rx="1.5"/><rect x="514" y="6" width="9" height="7" rx="1.5"/><rect x="514" y="77" width="9" height="7" rx="1.5"/><rect x="536" y="6" width="9" height="7" rx="1.5"/><rect x="536" y="77" width="9" height="7" rx="1.5"/><rect x="558" y="6" width="9" height="7" rx="1.5"/><rect x="558" y="77" width="9" height="7" rx="1.5"/><rect x="10" y="20" width="96" height="50" rx="3"/><rect x="120" y="20" width="96" height="50" rx="3"/><rect x="230" y="20" width="96" height="50" rx="3"/><rect x="340" y="20" width="96" height="50" rx="3"/><rect x="450" y="20" width="96" height="50" rx="3"/></svg>
@@ -388,12 +446,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         </div>
       </div>
       <div class="facts rv">
-        <div class="fact"><b>23 anos</b><span>de idade, editando desde os 16</span></div>
-        <div class="fact"><b>PT · EN · ES</b><span>idiomas em que atendo</span></div>
-        <div class="fact"><b>Remoto</b><span>atendo clientes de vários países</span></div>
+        <div class="fact"><b data-i18n="fact1.b">23 anos</b><span data-i18n="fact1.s">de idade, editando desde os 16</span></div>
+        <div class="fact"><b>PT · EN · ES</b><span data-i18n="fact2.s">idiomas em que atendo</span></div>
+        <div class="fact"><b data-i18n="fact3.b">Remoto</b><span data-i18n="fact3.s">atendo clientes de vários países</span></div>
       </div>
       <div class="clients rv">
-        <p class="eyebrow">Já editei para</p>
+        <p class="eyebrow" data-i18n="clients">Já editei para</p>
         <span class="c">Emilly Vicky</span><span class="c">Leonzinn Lemos</span><span class="c">Jeff Bala</span><span class="c">Albbinooficial</span><span class="c">Puma</span><span class="c">TnT</span><span class="c">Antonela Braga</span><span class="c">Remax Brasil</span>
       </div>
     </div>
@@ -408,22 +466,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <circle cx="80" cy="190" r="3"/><circle cx="200" cy="40" r="3"/><circle cx="320" cy="40" r="3"/><circle cx="440" cy="64" r="3"/>
         <path d="M20 184l6 6-6 6-6-6zM260 34l6 6-6 6-6-6zM500 24l6 6-6 6-6-6z" fill="currentColor"/>
       </svg>
-      <p class="eyebrow rv">Contato</p>
-      <h2 class="serif rv">Vamos <em>conversar?</em></h2>
-      <p class="rv" style="max-width:44ch;font-size:17px">Me conta o que você grava e com que frequência. Respondo em português, inglês ou espanhol.</p>
+      <p class="eyebrow rv" data-i18n="contact.eyebrow">Contato</p>
+      <h2 class="serif rv" data-i18n="contact.h2">Vamos <em>conversar?</em></h2>
+      <p class="rv" style="max-width:44ch;font-size:17px" data-i18n="contact.p">Me conta o que você grava e com que frequência. Respondo em português, inglês ou espanhol.</p>
       <div class="row rv" id="channels"></div>
     </div>
   </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Felipe Raposo · Raposo Prod.</span><span><a href="en/" hreflang="en" lang="en" style="text-decoration:underline">English</a> · @raposoedit</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Felipe Raposo · Raposo Prod.</span><span>@raposoedit</span></div></footer>
 
-<div class="mobile-cta"><span>Tem um vídeo para editar?</span><a class="btn" href="#contato" data-contact>Falar comigo</a></div>
+<div class="mobile-cta"><span data-i18n="cta.q">Tem um vídeo para editar?</span><a class="btn" href="#contato" data-contact data-i18n="cta.btn">Falar comigo</a></div>
 
 <!-- tela da categoria -->
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
   <div class="bar"><div class="in">
-    <button class="back" id="back" aria-label="Voltar para a página inicial">← Voltar</button>
+    <button class="back" id="back" data-i18n-aria="aria.back" aria-label="Voltar para a página inicial" data-i18n="back">← Voltar</button>
     <span class="lbl" id="sheet-count"></span>
   </div></div>
   <div class="wrap">
@@ -441,7 +499,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <!-- janela do projeto -->
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title">
   <div class="box">
-    <button class="close" id="close" aria-label="Fechar">✕</button>
+    <button class="close" id="close" data-i18n-aria="aria.close" aria-label="Fechar">✕</button>
     <div class="media" id="v-media"></div>
     <div class="info">
       <p class="eyebrow" id="v-cat"></p>
@@ -483,60 +541,212 @@ const FOTOS = [
    destaque -> (opcional) true = aparece grande, no topo da categoria      */
 const vazio = (n, formato) => Array.from({length:n}, () => ({titulo:"", descricao:"", tipo:"", src:"", capa:"", formato}));
 const ig = code => `https://www.instagram.com/p/${code}/`;
-const yt = (id, titulo, canal, sub, extra = "") => ({titulo, descricao:`${extra ? "Edição e thumbnail" : "Edição"} para o canal ${canal}.`, tipo:"youtube", src:id, formato:"16:9", sub, link:`https://www.youtube.com/watch?v=${id}`});
-const thumb = (id, titulo, canal) => ({titulo, descricao:`Thumbnail que fiz para o canal ${canal}.`, tipo:"imagem", src:`thumbs/${id}.jpg`, formato:"16:9", link:`https://www.youtube.com/watch?v=${id}`});
+/* Textos em 3 idiomas: L("português", "inglês", "espanhol"). Se só tiver português, pode escrever só o texto. */
+const L = (pt, en, es) => ({pt, en, es});
+const yt = (id, titulo, canal, sub, extra = "") => ({titulo,
+  descricao: L(`${extra ? "Edição e thumbnail" : "Edição"} para o canal ${canal}.`,
+               `${extra ? "Editing and thumbnail" : "Editing"} for the ${canal} channel. Video in Portuguese.`,
+               `${extra ? "Edición y miniatura" : "Edición"} para el canal ${canal}. Video en portugués.`),
+  tipo:"youtube", src:id, formato:"16:9", sub, link:`https://www.youtube.com/watch?v=${id}`});
+const thumb = (id, titulo, canal) => ({titulo,
+  descricao: L(`Thumbnail que fiz para o canal ${canal}.`, `Thumbnail I made for the ${canal} channel.`, `Miniatura que hice para el canal ${canal}.`),
+  tipo:"imagem", src:`thumbs/${id}.jpg`, formato:"16:9", link:`https://www.youtube.com/watch?v=${id}`});
+const SUB = {
+  coment: L("Comentário", "Commentary", "Comentario"), vlogs: L("Vlogs", "Vlogs", "Vlogs"),
+  viagem: L("Viagem", "Travel", "Viajes"), infantil: L("Infantil", "Kids", "Infantil"),
+};
 
 const CATEGORIAS = [
-  { id:"imoveis", nome:"Vídeos de imóveis", curto:"Filmagem e edição",
-    intro:"Vídeos de imóveis de alto padrão. Eu filmo com iPhone e drone e faço a edição.",
+  { id:"imoveis", nome:L("Vídeos de imóveis", "Real estate videos", "Videos inmobiliarios"), curto:L("Filmagem e edição", "Filming and editing", "Grabación y edición"),
+    intro:L("Vídeos de imóveis de alto padrão. Eu filmo com iPhone e drone e faço a edição.",
+            "High-end real estate videos. I film with an iPhone and a drone and do the editing.",
+            "Videos de inmuebles de alto nivel. Grabo con iPhone y dron y hago la edición."),
     tom:"#ddd3c0", previa:["videos/imovel-1.mp4"], projetos: [
-      { titulo:"Casa de alto padrão", descricao:"Gravei e editei este vídeo. A casa foi vendida uma semana depois da publicação, e o corretor recebeu mais de R$ 67 mil de comissão.", tipo:"video", src:"videos/imovel-1.mp4", capa:"capas/imovel-1.jpg", formato:"9:16", link:ig("C5n70WEu-4D"), destaque:true },
-      { titulo:"Casa com piscina", descricao:"Tour pela casa, da área externa aos quartos.", tipo:"video", src:"videos/imovel-2.mp4", capa:"capas/imovel-2.jpg", formato:"16:9", link:ig("C8rolksukLc") },
-      { titulo:"Casa no Green Valley, Teresópolis", descricao:"Publicado pela Terehouses.", tipo:"video", src:"videos/imovel-3.mp4", capa:"capas/imovel-3.jpg", formato:"16:9", link:ig("DBy1YM9OeBJ") },
-      { titulo:"Residência em condomínio fechado", descricao:"Publicado por Adriana Raposo.", tipo:"video", src:"videos/imovel-4.mp4", capa:"capas/imovel-4.jpg", formato:"16:9", link:"https://www.instagram.com/reel/C8md1lwuBVz/" },
+      { titulo:L("Casa de alto padrão", "High-end house", "Casa de alto nivel"),
+        descricao:L("Gravei e editei este vídeo. A casa foi vendida uma semana depois da publicação, e o corretor recebeu mais de R$ 67 mil de comissão.",
+                    "I shot and edited this video. The house sold a week after it was published, and the agent earned more than R$ 67,000 in commission.",
+                    "Grabé y edité este video. La casa se vendió una semana después de la publicación, y el corredor recibió más de R$ 67 mil de comisión."),
+        tipo:"video", src:"videos/imovel-1.mp4", capa:"capas/imovel-1.jpg", formato:"9:16", link:ig("C5n70WEu-4D"), destaque:true },
+      { titulo:L("Casa com piscina", "House with a pool", "Casa con piscina"),
+        descricao:L("Tour pela casa, da área externa aos quartos.", "A tour of the house, from the outdoor area to the bedrooms.", "Recorrido por la casa, del área exterior a los dormitorios."),
+        tipo:"video", src:"videos/imovel-2.mp4", capa:"capas/imovel-2.jpg", formato:"16:9", link:ig("C8rolksukLc") },
+      { titulo:L("Casa no Green Valley, Teresópolis", "House in Green Valley, Teresópolis", "Casa en Green Valley, Teresópolis"),
+        descricao:L("Publicado pela Terehouses.", "Published by Terehouses.", "Publicado por Terehouses."),
+        tipo:"video", src:"videos/imovel-3.mp4", capa:"capas/imovel-3.jpg", formato:"16:9", link:ig("DBy1YM9OeBJ") },
+      { titulo:L("Residência em condomínio fechado", "Residence in a gated community", "Residencia en condominio cerrado"),
+        descricao:L("Publicado por Adriana Raposo.", "Published by Adriana Raposo.", "Publicado por Adriana Raposo."),
+        tipo:"video", src:"videos/imovel-4.mp4", capa:"capas/imovel-4.jpg", formato:"16:9", link:"https://www.instagram.com/reel/C8md1lwuBVz/" },
     ] },
-  { id:"youtube", nome:"YouTube", curto:"Viagem, infantil, vlogs e mais",
-    intro:"Edição para canais do YouTube de nichos diferentes. O cliente me manda o material bruto pelo Google Drive e eu monto o vídeo no estilo do canal: cortes, ritmo, trilha, efeitos, legendas e animações.",
+  { id:"youtube", nome:"YouTube", curto:L("Viagem, infantil, vlogs e mais", "Travel, kids, vlogs and more", "Viajes, infantil, vlogs y más"),
+    intro:L("Edição para canais do YouTube de nichos diferentes. O cliente me manda o material bruto pelo Google Drive e eu monto o vídeo no estilo do canal: cortes, ritmo, trilha, efeitos, legendas e animações.",
+            "Editing for YouTube channels in different niches. The client sends me the raw footage through Google Drive and I put the video together in the channel's style: cuts, pacing, music, effects, subtitles and animations.",
+            "Edición para canales de YouTube de distintos nichos. El cliente me envía el material en bruto por Google Drive y armo el video con el estilo del canal: cortes, ritmo, música, efectos, subtítulos y animaciones."),
     tom:"#d6dacd", previa:["teCZLRFOlaI","DdpckM69HsQ"], projetos: [
-      yt("DfJDCKrmpzI", "Manchester City pode sumir do mapa! (115 infrações)", "Gabrielzão", "Comentário", true),
-      yt("65hqhKoYLLk", "ChatGPT previu a reeleição do Lula!", "Gabrielzão", "Comentário", true),
-      yt("om2nfCoXRlk", "Vlog do fim de semana", "Antonela Braga", "Vlogs"),
-      yt("teCZLRFOlaI", "Por dentro do hotel número 1 do mundo", "Victor Nômade Nutella", "Viagem"),
-      yt("kI4MBIVZYrw", "Sobrevivi às experiências mais perigosas de Bali", "Victor Nômade Nutella", "Viagem"),
-      { titulo:"", descricao:"", tipo:"drive", src:"1LqI8n89mKt76c4H9gY-KpEqDx5HKXNSm", capa:"capas/viagem-2.jpg", formato:"16:9", sub:"Viagem" },
-      yt("DdpckM69HsQ", "Julgando as piores maquiagens", "Katlenof", "Infantil"),
-      yt("pyI2KrMbCp4", "Experimentando e avaliando cereais de outros países", "Diário da Carol", "Infantil"),
-      yt("8xGPS7JHm0I", "Escapei de uma prisão apenas cavando", "Void X", "Infantil"),
+      yt("DfJDCKrmpzI", L("Manchester City pode sumir do mapa! (115 infrações)", "Manchester City could vanish from the map! (115 charges)", "¡El Manchester City podría desaparecer del mapa! (115 infracciones)"), "Gabrielzão", SUB.coment, true),
+      yt("65hqhKoYLLk", L("ChatGPT previu a reeleição do Lula!", "ChatGPT predicted Lula's re-election!", "¡ChatGPT predijo la reelección de Lula!"), "Gabrielzão", SUB.coment, true),
+      yt("om2nfCoXRlk", L("Vlog do fim de semana", "Weekend vlog", "Vlog del fin de semana"), "Antonela Braga", SUB.vlogs),
+      yt("teCZLRFOlaI", L("Por dentro do hotel número 1 do mundo", "Inside the world's #1 hotel", "Dentro del hotel número 1 del mundo"), "Victor Nômade Nutella", SUB.viagem),
+      yt("kI4MBIVZYrw", L("Sobrevivi às experiências mais perigosas de Bali", "I survived Bali's most dangerous experiences", "Sobreviví a las experiencias más peligrosas de Bali"), "Victor Nômade Nutella", SUB.viagem),
+      { titulo:"", descricao:"", tipo:"drive", src:"1LqI8n89mKt76c4H9gY-KpEqDx5HKXNSm", capa:"capas/viagem-2.jpg", formato:"16:9", sub:SUB.viagem },
+      yt("DdpckM69HsQ", L("Julgando as piores maquiagens", "Judging the worst makeup", "Juzgando los peores maquillajes"), "Katlenof", SUB.infantil),
+      yt("pyI2KrMbCp4", L("Experimentando e avaliando cereais de outros países", "Trying and rating cereals from other countries", "Probando y calificando cereales de otros países"), "Diário da Carol", SUB.infantil),
+      yt("8xGPS7JHm0I", L("Escapei de uma prisão apenas cavando", "I escaped from a prison just by digging", "Escapé de una prisión solo cavando"), "Void X", SUB.infantil),
     ] },
-  { id:"thumbnails", nome:"Thumbnails", curto:"Capas para YouTube",
-    intro:"Capas que criei para vídeos no YouTube. Toque em uma para ver em tamanho grande.",
+  { id:"thumbnails", nome:L("Thumbnails", "Thumbnails", "Miniaturas"), curto:L("Capas para YouTube", "YouTube covers", "Portadas para YouTube"),
+    intro:L("Capas que criei para vídeos no YouTube. Toque em uma para ver em tamanho grande.",
+            "Covers I created for YouTube videos. Tap one to see it full size.",
+            "Portadas que creé para videos de YouTube. Toca una para verla en tamaño grande."),
     tom:"#d9d6c9", previa:["thumbs/DfJDCKrmpzI.jpg","thumbs/65hqhKoYLLk.jpg"], projetos: [
-      thumb("DfJDCKrmpzI", "Manchester City pode sumir do mapa!", "Gabrielzão"),
-      thumb("65hqhKoYLLk", "ChatGPT previu a reeleição do Lula!", "Gabrielzão"),
+      thumb("DfJDCKrmpzI", L("Manchester City pode sumir do mapa!", "Manchester City could vanish from the map!", "¡El Manchester City podría desaparecer del mapa!"), "Gabrielzão"),
+      thumb("65hqhKoYLLk", L("ChatGPT previu a reeleição do Lula!", "ChatGPT predicted Lula's re-election!", "¡ChatGPT predijo la reelección de Lula!"), "Gabrielzão"),
     ] },
-  { id:"publicidade", nome:"Publicidade", curto:"Marcas e negócios",
-    intro:"Vídeos para divulgar marcas, produtos e lugares.",
+  { id:"publicidade", nome:L("Publicidade", "Advertising", "Publicidad"), curto:L("Marcas e negócios", "Brands and businesses", "Marcas y negocios"),
+    intro:L("Vídeos para divulgar marcas, produtos e lugares.", "Videos to promote brands, products and places.", "Videos para promocionar marcas, productos y lugares."),
     tom:"#e4d8cc", previa:["videos/publicidade-1.mp4"], projetos: [
-      { titulo:"Village Mall com Nikki Meneguel", descricao:"Publicidade para o Shopping Village Mall, apresentada pela Nikki Meneguel. Um passeio pelos restaurantes do shopping em ritmo de Reels, com os pratos em primeiro plano e a fala dela conduzindo o vídeo do começo ao fim.", tipo:"video", src:"videos/publicidade-1.mp4", capa:"capas/publicidade-1.jpg", formato:"9:16" },
+      { titulo:L("Village Mall com Nikki Meneguel", "Village Mall with Nikki Meneguel", "Village Mall con Nikki Meneguel"),
+        descricao:L("Publicidade para o Shopping Village Mall, apresentada pela Nikki Meneguel. Um passeio pelos restaurantes do shopping em ritmo de Reels, com os pratos em primeiro plano e a fala dela conduzindo o vídeo do começo ao fim.",
+                    "Advertising for Village Mall, hosted by Nikki Meneguel. A tour of the mall's restaurants at Reels pace, with the dishes front and center and her voice guiding the video from start to finish.",
+                    "Publicidad para el Shopping Village Mall, presentada por Nikki Meneguel. Un recorrido por los restaurantes del shopping a ritmo de Reels, con los platos en primer plano y su voz guiando el video de principio a fin."),
+        tipo:"video", src:"videos/publicidade-1.mp4", capa:"capas/publicidade-1.jpg", formato:"9:16" },
     ] },
-  { id:"drone", nome:"Vídeos de drone", curto:"Imagens aéreas",
-    intro:"Imagens aéreas que gravo com meu drone DJI, no Rio e nas viagens.",
+  { id:"drone", nome:L("Vídeos de drone", "Drone videos", "Videos con dron"), curto:L("Imagens aéreas", "Aerial footage", "Tomas aéreas"),
+    intro:L("Imagens aéreas que gravo com meu drone DJI, no Rio e nas viagens.", "Aerial footage I shoot with my DJI drone, in Rio and on my travels.", "Tomas aéreas que grabo con mi dron DJI, en Río y en mis viajes."),
     tom:"#d3dad8", previa:["videos/drone-3.mp4"], projetos: [
-      { titulo:"Dedo de Deus, Teresópolis", descricao:"Imagens aéreas do Dedo de Deus, na serra de Teresópolis.", tipo:"video", src:"videos/drone-6.mp4", capa:"capas/drone-6.jpg", formato:"9:16", link:ig("C_OjWiaPWeE") },
-      { titulo:"Nascer do sol em Copacabana", descricao:"Acordei às 5h20 para gravar com meu DJI Mini. Sem correção de cor, direto do drone.", tipo:"video", src:"videos/drone-5.mp4", capa:"capas/drone-5.jpg", formato:"9:16", link:ig("DJ6g7lBOBO4") },
-      { titulo:"Cinematic Rio", descricao:"Gravado em uma tarde de sol na praia do Leblon, só com celular e drone.", tipo:"video", src:"videos/drone-3.mp4", capa:"capas/drone-3.jpg", formato:"9:16", link:ig("C-30CPbBR3t") },
-      { titulo:"Diamond Beach, Nusa Penida", descricao:"Imagens aéreas da praia e dos penhascos.", tipo:"video", src:"videos/drone-4.mp4", capa:"capas/drone-4.jpg", formato:"16:9", link:ig("DX6i71khJhP") },
-      { titulo:"Um lugar que eu sempre quis filmar", descricao:"", tipo:"video", src:"videos/drone-2.mp4", capa:"capas/drone-2.jpg", formato:"9:16", link:ig("DSmzYrXgXIs") },
+      { titulo:"Dedo de Deus, Teresópolis",
+        descricao:L("Imagens aéreas do Dedo de Deus, na serra de Teresópolis.", "Aerial footage of Dedo de Deus (God's Finger), in the mountains of Teresópolis.", "Tomas aéreas del Dedo de Deus, en la sierra de Teresópolis."),
+        tipo:"video", src:"videos/drone-6.mp4", capa:"capas/drone-6.jpg", formato:"9:16", link:ig("C_OjWiaPWeE") },
+      { titulo:L("Nascer do sol em Copacabana", "Sunrise at Copacabana", "Amanecer en Copacabana"),
+        descricao:L("Acordei às 5h20 para gravar com meu DJI Mini. Sem correção de cor, direto do drone.", "I woke up at 5:20 am to film with my DJI Mini. No color grading, straight from the drone.", "Me desperté a las 5:20 para grabar con mi DJI Mini. Sin corrección de color, directo del dron."),
+        tipo:"video", src:"videos/drone-5.mp4", capa:"capas/drone-5.jpg", formato:"9:16", link:ig("DJ6g7lBOBO4") },
+      { titulo:"Cinematic Rio",
+        descricao:L("Gravado em uma tarde de sol na praia do Leblon, só com celular e drone.", "Shot on a sunny afternoon at Leblon beach, with just a phone and a drone.", "Grabado en una tarde de sol en la playa de Leblon, solo con un celular y un dron."),
+        tipo:"video", src:"videos/drone-3.mp4", capa:"capas/drone-3.jpg", formato:"9:16", link:ig("C-30CPbBR3t") },
+      { titulo:"Diamond Beach, Nusa Penida",
+        descricao:L("Imagens aéreas da praia e dos penhascos.", "Aerial shots of the beach and the cliffs.", "Tomas aéreas de la playa y los acantilados."),
+        tipo:"video", src:"videos/drone-4.mp4", capa:"capas/drone-4.jpg", formato:"16:9", link:ig("DX6i71khJhP") },
+      { titulo:L("Um lugar que eu sempre quis filmar", "A place I always wanted to film", "Un lugar que siempre quise filmar"), descricao:"",
+        tipo:"video", src:"videos/drone-2.mp4", capa:"capas/drone-2.jpg", formato:"9:16", link:ig("DSmzYrXgXIs") },
       { titulo:"", descricao:"", tipo:"video", src:"videos/drone-1.mp4", capa:"capas/drone-1.jpg", formato:"9:16", link:ig("DYj5lDPBBkh") },
     ] },
 ];
+
+/* Textos fixos da página nos 3 idiomas */
+const I18N = {
+ "pt": {
+  "nav.work": "Trabalhos",
+  "nav.about": "Sobre",
+  "nav.contact": "Contato",
+  "hero.eyebrow": "Editor de vídeo · Nômade digital",
+  "hero.h1": "Edito vídeos <em>desde os 16.</em>",
+  "hero.lead": "Pego o material bruto e devolvo o vídeo pronto, no estilo do seu canal. Trabalho com YouTubers de viagem, canais infantis e vlogs, e faço publicidade, thumbnails, vídeos de imóveis e imagens de drone.",
+  "hero.cta": "Falar comigo <span class=\"arr\">→</span>",
+  "hero.cta2": "Ver trabalhos",
+  "work.h2": "Trabalhos",
+  "work.p": "Escolha uma área para ver os projetos.",
+  "about.eyebrow": "Sobre mim",
+  "about.h2": "Trabalho de onde <em>eu estiver.</em>",
+  "about.p1": "Sou o Felipe, editor de vídeo e nômade digital. Trabalho de diferentes partes do mundo, e a edição vai comigo para onde eu for.",
+  "about.p2": "Comecei aos 16 anos editando para YouTubers de nichos diferentes. Hoje uso as principais ferramentas de edição e adapto o estilo às referências que cada cliente me mostra.",
+  "about.p3": "Como tudo acontece online, o processo é o mesmo em qualquer país: você manda os arquivos pelo Google Drive, eu edito e entrego o vídeo pronto. Se quiser, também cuido do título, da thumbnail e da publicação no canal.",
+  "about.p4": "Para imóveis, filmo com iPhone 17 Pro e drone DJI Mini 5 Pro, na Barra da Tijuca e na Zona Sul do Rio, e faço a edição.",
+  "fact1.b": "23 anos",
+  "fact1.s": "de idade, editando desde os 16",
+  "fact2.s": "idiomas em que atendo",
+  "fact3.b": "Remoto",
+  "fact3.s": "atendo clientes de vários países",
+  "clients": "Já editei para",
+  "contact.eyebrow": "Contato",
+  "contact.h2": "Vamos <em>conversar?</em>",
+  "contact.p": "Me conta o que você grava e com que frequência. Respondo em português, inglês ou espanhol.",
+  "cta.q": "Tem um vídeo para editar?",
+  "cta.btn": "Falar comigo",
+  "back": "← Voltar",
+  "aria.back": "Voltar para a página inicial",
+  "aria.close": "Fechar",
+  "meta.title": "Felipe Raposo · Editor de vídeo",
+  "meta.desc": "Portfólio de edição de vídeo de Felipe Raposo: imóveis, canais infantis, viagem, vlogs e thumbnails."
+ },
+ "en": {
+  "nav.work": "Work",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+  "hero.eyebrow": "Video editor · Digital nomad",
+  "hero.h1": "I've been editing videos <em>since I was 16.</em>",
+  "hero.lead": "I take your raw footage and send back the finished video, in your channel's style. I work with travel YouTubers, kids' channels and vloggers, and I also make ads, thumbnails, real estate videos and drone footage.",
+  "hero.cta": "Talk to me <span class=\"arr\">→</span>",
+  "hero.cta2": "See my work",
+  "work.h2": "Work",
+  "work.p": "Pick an area to see the projects.",
+  "about.eyebrow": "About me",
+  "about.h2": "I work from <em>wherever I am.</em>",
+  "about.p1": "I'm Felipe, a video editor and digital nomad. I work from different parts of the world, and the editing goes wherever I go.",
+  "about.p2": "I started at 16, editing for YouTubers in different niches. Today I use the main editing tools and adapt my style to the references each client shows me.",
+  "about.p3": "Since everything happens online, the process is the same in any country: you send the files through Google Drive, I edit and deliver the finished video. If you want, I can also handle the title, the thumbnail and publishing on your channel.",
+  "about.p4": "For real estate, I film with an iPhone 17 Pro and a DJI Mini 5 Pro drone in Barra da Tijuca and the South Zone of Rio de Janeiro, and I do the editing.",
+  "fact1.b": "23",
+  "fact1.s": "years old, editing since I was 16",
+  "fact2.s": "languages I work in",
+  "fact3.b": "Remote",
+  "fact3.s": "clients from many countries",
+  "clients": "I've edited for",
+  "contact.eyebrow": "Contact",
+  "contact.h2": "Let's <em>talk.</em>",
+  "contact.p": "Tell me what you film and how often. I reply in Portuguese, English or Spanish.",
+  "cta.q": "Got a video to edit?",
+  "cta.btn": "Talk to me",
+  "back": "← Back",
+  "aria.back": "Back to the home page",
+  "aria.close": "Close",
+  "meta.title": "Felipe Raposo · Video editor",
+  "meta.desc": "Video editing portfolio by Felipe Raposo: real estate, YouTube channels, ads, thumbnails and drone footage."
+ },
+ "es": {
+  "nav.work": "Trabajos",
+  "nav.about": "Sobre mí",
+  "nav.contact": "Contacto",
+  "hero.eyebrow": "Editor de video · Nómada digital",
+  "hero.h1": "Edito videos <em>desde los 16.</em>",
+  "hero.lead": "Recibo tu material en bruto y te devuelvo el video terminado, con el estilo de tu canal. Trabajo con YouTubers de viajes, canales infantiles y vlogs, y también hago publicidad, miniaturas, videos inmobiliarios y tomas con dron.",
+  "hero.cta": "Hablemos <span class=\"arr\">→</span>",
+  "hero.cta2": "Ver trabajos",
+  "work.h2": "Trabajos",
+  "work.p": "Elige un área para ver los proyectos.",
+  "about.eyebrow": "Sobre mí",
+  "about.h2": "Trabajo desde <em>donde esté.</em>",
+  "about.p1": "Soy Felipe, editor de video y nómada digital. Trabajo desde distintas partes del mundo, y la edición va conmigo adonde vaya.",
+  "about.p2": "Empecé a los 16 años editando para YouTubers de distintos nichos. Hoy uso las principales herramientas de edición y adapto el estilo a las referencias que me muestra cada cliente.",
+  "about.p3": "Como todo sucede en línea, el proceso es igual en cualquier país: me envías los archivos por Google Drive, edito y te entrego el video terminado. Si quieres, también me encargo del título, la miniatura y la publicación en el canal.",
+  "about.p4": "Para inmuebles, grabo con iPhone 17 Pro y dron DJI Mini 5 Pro en Barra da Tijuca y la Zona Sur de Río de Janeiro, y hago la edición.",
+  "fact1.b": "23 años",
+  "fact1.s": "de edad, editando desde los 16",
+  "fact2.s": "idiomas en los que trabajo",
+  "fact3.b": "Remoto",
+  "fact3.s": "clientes de varios países",
+  "clients": "He editado para",
+  "contact.eyebrow": "Contacto",
+  "contact.h2": "Hablemos <em>de tu video.</em>",
+  "contact.p": "Cuéntame qué grabas y con qué frecuencia. Respondo en portugués, inglés o español.",
+  "cta.q": "¿Tienes un video para editar?",
+  "cta.btn": "Hablemos",
+  "back": "← Volver",
+  "aria.back": "Volver a la página de inicio",
+  "aria.close": "Cerrar",
+  "meta.title": "Felipe Raposo · Editor de video",
+  "meta.desc": "Portafolio de edición de video de Felipe Raposo: inmuebles, canales de YouTube, publicidad, miniaturas y tomas con dron."
+ }
+};
+const UI = {"pt": {"proj1": "1 projeto", "projN": "projetos", "todos": "Todos", "destaque": "Destaque", "assistir": "▶ Assistir", "ampliar": "Ampliar", "previa": "Prévia do vídeo", "verNo": "Ver no", "assistirNo": "Assistir no", "erroVideo": "Não foi possível carregar o vídeo.", "sobreMim": "Sobre mim", "fotoTitulo": "De onde eu trabalho", "fotoAlt": "Foto de viagem do Felipe", "verFoto": "Ver foto em tamanho grande", "tocar": "Tocar vídeo"}, "en": {"proj1": "1 project", "projN": "projects", "todos": "All", "destaque": "Featured", "assistir": "▶ Watch", "ampliar": "Enlarge", "previa": "Video preview", "verNo": "View on", "assistirNo": "Watch on", "erroVideo": "The video couldn't be loaded.", "sobreMim": "About me", "fotoTitulo": "Where I work from", "fotoAlt": "Travel photo of Felipe", "verFoto": "See photo full size", "tocar": "Play video"}, "es": {"proj1": "1 proyecto", "projN": "proyectos", "todos": "Todos", "destaque": "Destacado", "assistir": "▶ Ver", "ampliar": "Ampliar", "previa": "Vista previa", "verNo": "Ver en", "assistirNo": "Ver en", "erroVideo": "No se pudo cargar el video.", "sobreMim": "Sobre mí", "fotoTitulo": "Desde donde trabajo", "fotoAlt": "Foto de viaje de Felipe", "verFoto": "Ver la foto en tamaño grande", "tocar": "Reproducir video"}};
+const LANGS = ["pt", "en", "es"];
+let LANG = "pt";
+const T = v => (v && typeof v === "object" && !Array.isArray(v)) ? (v[LANG] ?? v.pt) : v;
+const u = k => UI[LANG][k];
 
 /* =====================================================================
    A partir daqui é o funcionamento da página
    ===================================================================== */
 const $ = s => document.querySelector(s);
-const fill = t => `<span class="fill">PREENCHER: ${t}</span>`;
-const qtd = n => n === 1 ? "1 projeto" : `${n} projetos`;
+const fill = t => LANG === "pt" ? `<span class="fill">PREENCHER: ${t}</span>` : "";
+const qtd = n => n === 1 ? u("proj1") : `${n} ${u("projN")}`;
 const contactHref = () => CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}` : `https://www.instagram.com/${CONFIG.instagram}/`;
 
 // contato
@@ -550,8 +760,8 @@ $("#channels").innerHTML = [
 // colagem do "Sobre mim"
 const depths = [16, 30, 44], speeds = [-.06, .05, -.1];
 $("#collage").innerHTML = FOTOS.map((f, i) => `
-  <button class="ph-card tilt" data-depth="${depths[i % 3]}" data-speed="${speeds[i % 3]}" data-foto="${i}" aria-label="Ver foto em tamanho grande">
-    <span class="in"><img src="${f.src}" alt="Foto de viagem do Felipe" loading="lazy">${f.legenda ? `<span class="cap">${f.legenda}</span>` : ""}</span>
+  <button class="ph-card tilt" data-depth="${depths[i % 3]}" data-speed="${speeds[i % 3]}" data-foto="${i}" aria-label="${u("verFoto")}">
+    <span class="in"><img src="${f.src}" alt="${u("fotoAlt")}" loading="lazy">${f.legenda ? `<span class="cap">${f.legenda}</span>` : ""}</span>
   </button>`).join("");
 
 const capaDe = p => p.capa || (p.tipo === "youtube" && p.src ? `https://i.ytimg.com/vi/${p.src}/hqdefault.jpg` : p.tipo === "imagem" ? p.src : "");
@@ -559,20 +769,23 @@ const previaDe = c => (c.previa || []).map(k => c.projetos.find(p => p.src === k
   .map(p => `<img class="${p.formato === "9:16" ? "v" : ""}" src="${capaDe(p)}" alt="" loading="lazy">`).join("");
 
 // índice de categorias
-$("#cats").innerHTML = CATEGORIAS.map((c, i) => `
+function renderCats(revelar) {
+  $("#cats").innerHTML = CATEGORIAS.map((c, i) => `
   <li class="cat rv"><button data-cat="${c.id}">
     <span class="n">0${i+1}</span>
-    <span class="t">${c.nome}</span>
+    <span class="t">${T(c.nome)}</span>
     <span class="pv" aria-hidden="true">${previaDe(c)}</span>
-    <span class="d">${c.curto} · ${qtd(c.projetos.length)}</span>
+    <span class="d">${T(c.curto)} · ${qtd(c.projetos.length)}</span>
     <span class="go" aria-hidden="true">→</span>
   </button></li>`).join("");
+  if (revelar) document.querySelectorAll("#cats .rv").forEach(el => el.classList.add("in"));
+}
 
 function renderSheet(cat) {
   const i = CATEGORIAS.indexOf(cat);
   $("#sheet-n").textContent = `0${i+1} / 0${CATEGORIAS.length}`;
-  $("#sheet-title").textContent = cat.nome;
-  $("#sheet-intro").textContent = cat.intro;
+  $("#sheet-title").textContent = T(cat.nome);
+  $("#sheet-intro").textContent = T(cat.intro);
   $("#sheet-count").textContent = qtd(cat.projetos.length);
   const verticais = cat.projetos.filter(p => p.formato === "9:16" && !p.destaque).length;
   const resto = cat.projetos.filter(p => !p.destaque).length;
@@ -580,29 +793,29 @@ function renderSheet(cat) {
   const isImg = cat.id === "thumbnails";
   const card = (p, j, ordem, extra = "") => {
     const capa = capaDe(p);
-    return `<button class="card ${p.formato === "9:16" ? "v916" : ""} ${extra}" data-sub="${p.sub || ""}" style="--i:${ordem};--tone:${cat.tom}" data-p="${j}">
-      <div class="th">${capa ? `<img src="${capa}" alt="" loading="lazy">` : `<div class="ph"><span>${isImg ? "Thumbnail" : "Prévia do vídeo"}</span></div>`}
-        <span class="play">${isImg ? "Ampliar" : "▶ Assistir"}</span></div>
-      <div class="meta">${extra ? `<p class="eyebrow">Destaque</p>` : p.sub ? `<p class="eyebrow">${p.sub}</p>` : ""}<h3>${p.titulo || fill("título")}</h3><p>${p.descricao || fill("uma frase sobre o projeto")}</p></div>
+    return `<button class="card ${p.formato === "9:16" ? "v916" : ""} ${extra}" data-sub="${T(p.sub) || ""}" style="--i:${ordem};--tone:${cat.tom}" data-p="${j}">
+      <div class="th">${capa ? `<img src="${capa}" alt="" loading="lazy">` : `<div class="ph"><span>${isImg ? "Thumbnail" : u("previa")}</span></div>`}
+        <span class="play">${isImg ? u("ampliar") : u("assistir")}</span></div>
+      <div class="meta">${extra ? `<p class="eyebrow">${u("destaque")}</p>` : p.sub ? `<p class="eyebrow">${T(p.sub)}</p>` : ""}<h3>${T(p.titulo) || fill("título")}</h3><p>${T(p.descricao) || fill("uma frase sobre o projeto")}</p></div>
     </button>`;
   };
   const dj = cat.projetos.findIndex(p => p.destaque);
   $("#featured").innerHTML = dj >= 0 ? card(cat.projetos[dj], dj, 0, "feature") : "";
   $("#projects").className = "projects" + (vert ? " vert" : "");
   $("#projects").innerHTML = cat.projetos.map((p, j) => p.destaque ? "" : card(p, j, j + (dj >= 0 ? 1 : 0))).join("");
-  const subs = [...new Set(cat.projetos.map(p => p.sub).filter(Boolean))];
-  $("#chips").innerHTML = subs.length < 2 ? "" : [["", "Todos", cat.projetos.length], ...subs.map(n => [n, n, cat.projetos.filter(p => p.sub === n).length])]
+  const subs = [...new Set(cat.projetos.map(p => T(p.sub)).filter(Boolean))];
+  $("#chips").innerHTML = subs.length < 2 ? "" : [["", u("todos"), cat.projetos.length], ...subs.map(n => [n, n, cat.projetos.filter(p => T(p.sub) === n).length])]
     .map(([v, n, q], i) => `<button class="chip ${i ? "" : "on"}" data-sub="${v}">${n} <span>${q}</span></button>`).join("");
 }
 
 let fallbackHTML = "";
 function fallback(p, href, onde) {
   const capa = capaDe(p);
-  return `<div class="fb">${capa ? `<img src="${capa}" alt="">` : ""}<a class="btn" href="${href}" target="_blank" rel="noopener">▶ Assistir no ${onde}</a></div>`;
+  return `<div class="fb">${capa ? `<img src="${capa}" alt="">` : ""}<a class="btn" href="${href}" target="_blank" rel="noopener">▶ ${u("assistirNo")} ${onde}</a></div>`;
 }
 function mediaHTML(p) {
   // se o arquivo de vídeo não carregar, mostra o link de onde ele foi publicado
-  fallbackHTML = p.link ? fallback(p, p.link, p.link.includes("instagram") ? "Instagram" : "YouTube") : `<div class="ph">Não foi possível carregar o vídeo.</div>`;
+  fallbackHTML = p.link ? fallback(p, p.link, p.link.includes("instagram") ? "Instagram" : "YouTube") : `<div class="ph">${u("erroVideo")}</div>`;
   if (!p.src) return `<div class="ph">${fill(p.tipo === "imagem" ? "imagem da thumbnail" : "link ou arquivo do vídeo")}</div>`;
   switch (p.tipo) {
     // aberto direto do arquivo (file://) o YouTube recusa tocar (erro 153): mostra a capa com botão
@@ -611,7 +824,7 @@ function mediaHTML(p) {
     case "drive":     return fallback(p, `https://drive.google.com/file/d/${p.src}/view`, "Google Drive");
     case "instagram": return `<iframe src="${p.src.replace(/\/?(\?.*)?$/, "")}/embed" allowfullscreen scrolling="no"></iframe>`;
     case "video":     return `<video src="${p.src}" ${p.capa ? `poster="${p.capa}"` : ""} controls autoplay playsinline preload="auto" onerror="this.outerHTML=fallbackHTML"></video>`;
-    case "imagem":    return `<img src="${p.src}" alt="${p.titulo}">`;
+    case "imagem":    return `<img src="${p.src}" alt="${T(p.titulo)}">`;
   }
   return "";
 }
@@ -634,15 +847,15 @@ function openViewer(cat, j) {
     const tenta = vid.play();
     if (tenta) tenta.catch(() => {
       if (vid.error) return;
-      vid.insertAdjacentHTML("afterend", `<button class="tap" aria-label="Tocar vídeo">▶</button>`);
+      vid.insertAdjacentHTML("afterend", `<button class="tap" aria-label="${u("tocar")}">▶</button>`);
       vid.nextElementSibling.onclick = e => { vid.play(); e.currentTarget.remove(); };
     });
   }
-  $("#v-cat").textContent = cat.nome;
-  $("#v-title").innerHTML = p.titulo || fill("título");
-  $("#v-desc").innerHTML = p.descricao || fill("uma frase sobre o projeto: canal, lugar, o que você fez");
+  $("#v-cat").textContent = T(cat.nome);
+  $("#v-title").innerHTML = T(p.titulo) || fill("título");
+  $("#v-desc").innerHTML = T(p.descricao) || fill("uma frase sobre o projeto: canal, lugar, o que você fez");
   const onde = !p.link ? "" : p.link.includes("instagram") ? "Instagram" : p.link.includes("youtu") ? "YouTube" : "site";
-  $("#v-link").innerHTML = p.link ? `<a class="vlink" href="${p.link}" target="_blank" rel="noopener">Ver no ${onde} ↗</a>` : "";
+  $("#v-link").innerHTML = p.link ? `<a class="vlink" href="${p.link}" target="_blank" rel="noopener">${u("verNo")} ${onde} ↗</a>` : "";
   v.classList.add("open");
 }
 function closeViewer() {
@@ -656,6 +869,55 @@ function closeAll() {
   document.body.classList.remove("lock");
 }
 
+
+// ---------------------------------------------------------------- idioma
+function setLang(l, salvar, inicio) {
+  LANG = LANGS.includes(l) ? l : "pt";
+  const D = I18N[LANG];
+  document.documentElement.lang = {pt:"pt-BR", en:"en", es:"es"}[LANG];
+  document.querySelectorAll("[data-i18n]").forEach(el => { if (D[el.dataset.i18n] != null) el.innerHTML = D[el.dataset.i18n]; });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", D[el.dataset.i18nAria]));
+  document.title = D["meta.title"];
+  document.querySelector('meta[name="description"]').setAttribute("content", D["meta.desc"]);
+  document.querySelectorAll(".lang-switch [data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === LANG));
+  renderCats(!inicio);
+  if (current) renderSheet(current);
+  if (salvar) { try { localStorage.setItem("lang", LANG); } catch (e) {} }
+  syncLangUrl();
+  document.documentElement.classList.remove("i18n-wait");
+}
+// mantém o idioma escolhido no endereço (também depois do botão voltar)
+function syncLangUrl() {
+  const url = new URL(location.href);
+  if (LANG === "pt") url.searchParams.delete("lang"); else url.searchParams.set("lang", LANG);
+  if (url.href !== location.href) history.replaceState(history.state, "", url.pathname + url.search + url.hash);
+}
+function initLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  let salvo = null; try { salvo = localStorage.getItem("lang"); } catch (e) {}
+  const escolhido = LANGS.includes(q) ? q : LANGS.includes(salvo) ? salvo : null;
+  setLang(escolhido || "pt", LANGS.includes(q), true);
+  if (!escolhido) abrirPergunta();
+}
+// pergunta de idioma na primeira visita
+function abrirPergunta() {
+  const g = $("#lang-gate");
+  document.documentElement.classList.add("needs-gate");
+  document.body.classList.add("gate");
+  const sug = (navigator.languages || [navigator.language || ""]).map(x => (x || "").slice(0, 2).toLowerCase()).find(x => LANGS.includes(x)) || "pt";
+  g.querySelectorAll("[data-pick]").forEach(b => b.classList.toggle("sug", b.dataset.pick === sug));
+  setTimeout(() => { const b = g.querySelector(`[data-pick="${sug}"]`); if (b) b.focus({preventScroll:true}); }, 500);
+}
+$("#lang-gate").addEventListener("click", e => {
+  const b = e.target.closest("[data-pick]"); if (!b) return;
+  setLang(b.dataset.pick, true);
+  const g = $("#lang-gate");
+  g.classList.add("out"); document.body.classList.remove("gate");
+  setTimeout(() => { document.documentElement.classList.remove("needs-gate"); g.classList.remove("out"); }, 500);
+});
+document.querySelectorAll(".lang-switch [data-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang, true)));
+initLang();
+
 // endereço da página: #/imoveis abre a categoria, #/imoveis/2 abre o projeto.
 // Assim o botão "voltar" do celular também fecha as janelas.
 function route() {
@@ -665,8 +927,8 @@ function route() {
   if (m[2] !== undefined && current) openViewer(current, +m[2]); else closeViewer();
 }
 function go(hash) { history.pushState({app:true}, "", hash); route(); }
-function up(hash) { if (history.state && history.state.app) history.back(); else { history.replaceState(null, "", hash || location.pathname); route(); } }
-window.addEventListener("popstate", route);
+function up(hash) { if (history.state && history.state.app) history.back(); else { history.replaceState(null, "", hash || location.pathname + location.search); route(); } }
+window.addEventListener("popstate", () => { syncLangUrl(); route(); });
 
 $("#cats").addEventListener("click", e => { const b = e.target.closest("[data-cat]"); if (b) go(`#/${b.dataset.cat}`); });
 $("#chips").addEventListener("click", e => {
@@ -682,9 +944,9 @@ $("#collage").addEventListener("click", e => {
   const b = e.target.closest("[data-foto]"); if (!b) return;
   const f = FOTOS[+b.dataset.foto], v = $("#viewer");
   v.classList.add("v916");
-  $("#v-media").innerHTML = `<img src="${f.src}" alt="Foto de viagem do Felipe">`;
-  $("#v-cat").textContent = "Sobre mim";
-  $("#v-title").textContent = f.legenda || "De onde eu trabalho";
+  $("#v-media").innerHTML = `<img src="${f.src}" alt="${u("fotoAlt")}">`;
+  $("#v-cat").textContent = u("sobreMim");
+  $("#v-title").textContent = f.legenda || u("fotoTitulo");
   $("#v-desc").textContent = "";
   $("#v-link").innerHTML = "";
   photoOpen = true; document.body.classList.add("lock"); v.classList.add("open");
@@ -697,7 +959,7 @@ function closeTop() {
 $("#close").addEventListener("click", closeTop);
 $("#viewer").addEventListener("click", e => { if (e.target.id === "viewer") closeTop(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeTop(); });
-document.querySelector("[data-home]").addEventListener("click", e => { if (current) { e.preventDefault(); closeAll(); history.replaceState(null, "", location.pathname); } });
+document.querySelector("[data-home]").addEventListener("click", e => { if (current) { e.preventDefault(); closeAll(); history.replaceState(null, "", location.pathname + location.search); } });
 route();
 
 // animação de entrada ao rolar
