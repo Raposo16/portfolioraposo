@@ -63,6 +63,29 @@ em{font-style:italic}
 .portrait .tag{position:absolute;left:12px;right:12px;bottom:12px;padding:12px 16px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;justify-content:space-between;align-items:center;font-size:13px}
 .portrait .tag b{font-family:var(--serif);font-weight:400;font-size:19px}
 
+/* vetores de fundo (edição de vídeo) */
+.deco{position:absolute;pointer-events:none;color:var(--ink);opacity:.17;z-index:0}
+.deco text{font:500 9px/1 var(--sans);letter-spacing:.08em;fill:currentColor;stroke:none}
+.hero{position:relative;padding-bottom:calc(clamp(60px,9vw,110px) + clamp(40px,9vw,120px))}
+.hero .grid{position:relative;z-index:1}
+.deco-timeline{left:clamp(16px,4vw,48px);right:clamp(16px,4vw,48px);bottom:clamp(14px,2.5vw,30px);width:calc(100% - 2*clamp(16px,4vw,48px));height:auto;opacity:.2}
+.deco-timeline .tl rect{fill:rgba(21,20,18,.035)}
+.deco-timeline .wv{stroke-width:1.2;opacity:.8}
+.deco-timeline .playhead{animation:playhead 18s linear infinite;stroke-width:1.2}
+@keyframes playhead{from{transform:translateX(40px)}to{transform:translateX(1180px)}}
+.deco-frame{inset:-16px;width:calc(100% + 32px);height:calc(100% + 32px);opacity:.45;stroke-width:1}
+.deco-spec{position:absolute;right:-16px;top:-36px;font:500 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.5;color:var(--mut)}
+.head{position:relative}
+.deco-wave{position:relative;width:min(300px,40%);height:auto;margin-right:auto;margin-left:clamp(16px,3vw,40px);align-self:center;stroke-width:1.3}
+.collage-wrap{position:relative}
+.collage-wrap .collage{position:relative;z-index:1}
+.deco-film{left:-12%;bottom:12%;width:124%;height:auto;rotate:-9deg;opacity:.14;stroke-width:1}
+.contact{position:relative;overflow:hidden}
+.contact .wrap{position:relative}
+.deco-curve{right:0;top:-10px;width:min(520px,48%);height:auto;opacity:.18;stroke-width:1.2}
+.contact .wrap>*:not(.deco){position:relative;z-index:1}
+#sobre{overflow-x:clip}
+
 /* seções */
 section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
 .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap}
@@ -221,6 +244,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .contact .row{grid-template-columns:1fr}
 }
 @media (max-width:720px){
+  .deco-wave,.deco-spec{display:none}
+  .deco-curve{width:78%;top:70px;opacity:.12}
+  .deco-frame{inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px)}
   .nav nav a:not(.btn){display:none}
   .nav{padding-left:18px}
   .cat button{grid-template-columns:30px 1fr auto 40px;gap:10px}
@@ -266,6 +292,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <main>
   <div class="hero wrap">
+    <svg class="deco deco-timeline" data-depth="6" viewBox="0 0 1200 130" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+  <g class="tc"><text x="4" y="12">00:00:00:00</text><text x="304" y="12">00:00:16:00</text><text x="604" y="12">00:00:32:00</text><text x="904" y="12">00:00:48:00</text></g><path d="M0 18H1200"/><path d="M0 18v10"/><path d="M20 18v4"/><path d="M40 18v4"/><path d="M60 18v4"/><path d="M80 18v4"/><path d="M100 18v10"/><path d="M120 18v4"/><path d="M140 18v4"/><path d="M160 18v4"/><path d="M180 18v4"/><path d="M200 18v10"/><path d="M220 18v4"/><path d="M240 18v4"/><path d="M260 18v4"/><path d="M280 18v4"/><path d="M300 18v10"/><path d="M320 18v4"/><path d="M340 18v4"/><path d="M360 18v4"/><path d="M380 18v4"/><path d="M400 18v10"/><path d="M420 18v4"/><path d="M440 18v4"/><path d="M460 18v4"/><path d="M480 18v4"/><path d="M500 18v10"/><path d="M520 18v4"/><path d="M540 18v4"/><path d="M560 18v4"/><path d="M580 18v4"/><path d="M600 18v10"/><path d="M620 18v4"/><path d="M640 18v4"/><path d="M660 18v4"/><path d="M680 18v4"/><path d="M700 18v10"/><path d="M720 18v4"/><path d="M740 18v4"/><path d="M760 18v4"/><path d="M780 18v4"/><path d="M800 18v10"/><path d="M820 18v4"/><path d="M840 18v4"/><path d="M860 18v4"/><path d="M880 18v4"/><path d="M900 18v10"/><path d="M920 18v4"/><path d="M940 18v4"/><path d="M960 18v4"/><path d="M980 18v4"/><path d="M1000 18v10"/><path d="M1020 18v4"/><path d="M1040 18v4"/><path d="M1060 18v4"/><path d="M1080 18v4"/><path d="M1100 18v10"/><path d="M1120 18v4"/><path d="M1140 18v4"/><path d="M1160 18v4"/><path d="M1180 18v4"/><path d="M1200 18v10"/>
+  <g class="tl"><rect x="180" y="40" width="150" height="22" rx="5"/><rect x="620" y="40" width="140" height="22" rx="5"/><rect x="40" y="68" width="222" height="22" rx="5"/><rect x="268" y="68" width="252" height="22" rx="5"/><rect x="526" y="68" width="174" height="22" rx="5"/><rect x="706" y="68" width="274" height="22" rx="5"/><rect x="986" y="68" width="194" height="22" rx="5"/><rect x="40" y="96" width="1140" height="26" rx="5"/></g><g class="kf"><path d="M200 47l4 4-4 4-4-4z"/><path d="M260 47l4 4-4 4-4-4z"/><path d="M310 47l4 4-4 4-4-4z"/><path d="M650 47l4 4-4 4-4-4z"/><path d="M735 47l4 4-4 4-4-4z"/></g>
+  <path class="wv" d="M46 103.3V114.7M52 102.9V115.1M58 103.2V114.8M64 103.3V114.7M70 103.8V114.2M76 103.4V114.6M82 105.0V113.0M88 104.4V113.6M94 106.3V111.7M100 106.1V111.9M106 106.4V111.6M112 106.9V111.1M118 106.1V111.9M124 106.7V111.3M130 105.9V112.1M136 105.7V112.3M142 106.9V111.1M148 105.8V112.2M154 105.6V112.4M160 105.5V112.5M166 106.4V111.6M172 105.2V112.8M178 104.6V113.4M184 105.2V112.8M190 105.2V112.8M196 105.0V113.0M202 105.2V112.8M208 104.0V114.0M214 105.4V112.6M220 105.6V112.4M226 105.7V112.3M232 105.9V112.1M238 106.3V111.7M244 106.3V111.7M250 103.5V114.5M256 103.0V115.0M262 102.5V115.5M268 102.8V115.2M274 103.5V114.5M280 103.6V114.4M286 102.8V115.2M292 102.2V115.8M298 103.9V114.1M304 101.6V116.4M310 101.9V116.1M316 104.9V113.1M322 102.8V115.2M328 104.4V113.6M334 104.1V113.9M340 105.7V112.3M346 105.8V112.2M352 106.3V111.7M358 105.6V112.4M364 105.4V112.6M370 106.2V111.8M376 105.7V112.3M382 105.5V112.5M388 105.1V112.9M394 105.3V112.7M400 105.1V112.9M406 105.1V112.9M412 105.9V112.1M418 106.4V111.6M424 106.3V111.7M430 105.9V112.1M436 105.9V112.1M442 105.9V112.1M448 105.6V112.4M454 106.6V111.4M460 107.0V111.0M466 107.1V110.9M472 106.8V111.2M478 106.7V111.3M484 105.0V113.0M490 103.8V114.2M496 105.3V112.7M502 103.2V114.8M508 101.9V116.1M514 102.1V115.9M520 104.0V114.0M526 102.1V115.9M532 103.5V114.5M538 103.9V114.1M544 104.6V113.4M550 103.2V114.8M556 102.5V115.5M562 105.4V112.6M568 105.8V112.2M574 105.9V112.1M580 107.1V110.9M586 106.0V112.0M592 104.8V113.2M598 104.8V113.2M604 105.4V112.6M610 105.1V112.9M616 104.3V113.7M622 102.5V115.5M628 101.6V116.4M634 103.1V114.9M640 104.6V113.4M646 104.4V113.6M652 104.1V113.9M658 105.3V112.7M664 105.6V112.4M670 105.3V112.7M676 104.8V113.2M682 106.4V111.6M688 105.6V112.4M694 105.9V112.1M700 106.6V111.4M706 106.9V111.1M712 107.0V111.0M718 106.2V111.8M724 105.7V112.3M730 105.3V112.7M736 106.2V111.8M742 105.5V112.5M748 106.1V111.9M754 105.2V112.8M760 105.0V113.0M766 105.3V112.7M772 105.3V112.7M778 102.8V115.2M784 104.8V113.2M790 104.6V113.4M796 104.9V113.1M802 105.5V112.5M808 105.8V112.2M814 106.5V111.5M820 105.9V112.1M826 106.1V111.9M832 104.1V113.9M838 103.3V114.7M844 102.5V115.5M850 103.5V114.5M856 102.6V115.4M862 101.0V117.0M868 101.2V116.8M874 103.9V114.1M880 102.9V115.1M886 103.8V114.2M892 102.2V115.8M898 103.8V114.2M904 104.3V113.7M910 105.3V112.7M916 105.3V112.7M922 105.4V112.6M928 106.2V111.8M934 106.7V111.3M940 106.0V112.0M946 105.2V112.8M952 106.2V111.8M958 104.3V113.7M964 106.2V111.8M970 105.0V113.0M976 106.1V111.9M982 104.8V113.2M988 105.6V112.4M994 106.7V111.3M1000 106.5V111.5M1006 105.8V112.2M1012 105.5V112.5M1018 105.7V112.3M1024 105.7V112.3M1030 105.5V112.5M1036 105.4V112.6M1042 106.3V111.7M1048 106.3V111.7M1054 105.5V112.5M1060 105.5V112.5M1066 105.7V112.3M1072 104.3V113.7M1078 104.4V113.6M1084 102.8V115.2M1090 102.2V115.8M1096 101.2V116.8M1102 104.0V114.0M1108 104.2V113.8M1114 100.8V117.2M1120 101.7V116.3M1126 101.1V116.9M1132 102.2V115.8M1138 102.4V115.6M1144 105.3V112.7M1150 105.8V112.2M1156 105.6V112.4M1162 106.1V111.9M1168 106.6V111.4M1174 104.3V113.7"/>
+  <g class="tr"><text x="8" y="56">V2</text><text x="8" y="84">V1</text><text x="8" y="113">A1</text></g>
+  <g class="playhead"><path d="M-6 18h12l-6 7z" fill="currentColor"/><path d="M0 18V128"/></g>
+</svg>
     <div class="grid">
       <div>
         <p class="eyebrow rv">Editor de vídeo · Nômade digital</p>
@@ -277,6 +310,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         </div>
       </div>
       <div class="portrait-wrap rv">
+        <svg class="deco deco-frame" viewBox="0 0 100 125" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true">
+          <path vector-effect="non-scaling-stroke" d="M0 10V0H10M90 0H100V10M100 115V125H90M10 125H0V115"/>
+          <path vector-effect="non-scaling-stroke" d="M50 -4V3M50 122V129M-4 62.5H3M97 62.5H104"/>
+        </svg>
+        <span class="deco deco-spec" aria-hidden="true">1080 × 1350 · 24 fps</span>
         <figure class="portrait" data-depth="14">
           <img class="pimg" src="fotos/perfil.jpg" alt="Felipe Raposo sorrindo" data-depth="-10">
           <figcaption class="tag"><b>Felipe Raposo</b><span>@raposoedit</span></figcaption>
@@ -290,6 +328,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="wrap">
       <div class="head rv">
         <h2 class="serif">Trabalhos</h2>
+        <svg class="deco deco-wave" data-depth="-8" viewBox="0 0 300 48" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true"><path d="M2 19.0V29.0M7 17.9V30.1M12 15.7V32.3M17 16.0V32.0M22 15.7V32.3M27 15.0V33.0M32 14.8V33.2M37 13.5V34.5M42 9.0V39.0M47 8.0V40.0M52 8.0V40.0M57 11.1V36.9M62 8.9V39.1M67 14.2V33.8M72 9.4V38.6M77 13.3V34.7M82 15.9V32.1M87 15.1V32.9M92 16.9V31.1M97 15.0V33.0M102 17.4V30.6M107 19.4V28.6M112 19.2V28.8M117 19.9V28.1M122 16.7V31.3M127 18.4V29.6M132 17.1V30.9M137 17.9V30.1M142 18.8V29.2M147 17.5V30.5M152 17.6V30.4M157 19.0V29.0M162 14.5V33.5M167 16.7V31.3M172 14.7V33.3M177 15.3V32.7M182 11.9V36.1M187 16.1V31.9M192 16.6V31.4M197 16.6V31.4M202 14.7V33.3M207 12.5V35.5M212 15.2V32.8M217 13.5V34.5M222 18.0V30.0M227 15.6V32.4M232 19.5V28.5M237 16.1V31.9M242 17.7V30.3M247 14.6V33.4M252 13.2V34.8M257 9.6V38.4M262 12.2V35.8M267 8.0V40.0M272 13.5V34.5M277 5.8V42.2M282 8.6V39.4M287 8.2V39.8M292 4.3V43.7M297 10.4V37.6"/><path d="M0 24H300" stroke-dasharray="2 4"/></svg>
         <p>Escolha uma área para ver os projetos.</p>
       </div>
       <ol class="cats" id="cats"></ol>
@@ -307,7 +346,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <p class="rv">Como tudo acontece online, o processo é o mesmo em qualquer país: você manda os arquivos pelo Google Drive, eu edito e entrego o vídeo pronto. Se quiser, também cuido do título, da thumbnail e da publicação no canal.</p>
           <p class="rv">Para imóveis, filmo com iPhone 17 Pro e drone DJI Mini 5 Pro, na Barra da Tijuca e na Zona Sul do Rio, e faço a edição.</p>
         </div>
-        <div class="collage rv" id="collage"></div>
+        <div class="collage-wrap">
+          <svg class="deco deco-film" data-depth="-14" data-speed=".04" viewBox="0 0 560 90" fill="none" stroke="currentColor" aria-hidden="true"><rect x="0.5" y="0.5" width="559" height="89" rx="6"/><rect x="8" y="6" width="9" height="7" rx="1.5"/><rect x="8" y="77" width="9" height="7" rx="1.5"/><rect x="30" y="6" width="9" height="7" rx="1.5"/><rect x="30" y="77" width="9" height="7" rx="1.5"/><rect x="52" y="6" width="9" height="7" rx="1.5"/><rect x="52" y="77" width="9" height="7" rx="1.5"/><rect x="74" y="6" width="9" height="7" rx="1.5"/><rect x="74" y="77" width="9" height="7" rx="1.5"/><rect x="96" y="6" width="9" height="7" rx="1.5"/><rect x="96" y="77" width="9" height="7" rx="1.5"/><rect x="118" y="6" width="9" height="7" rx="1.5"/><rect x="118" y="77" width="9" height="7" rx="1.5"/><rect x="140" y="6" width="9" height="7" rx="1.5"/><rect x="140" y="77" width="9" height="7" rx="1.5"/><rect x="162" y="6" width="9" height="7" rx="1.5"/><rect x="162" y="77" width="9" height="7" rx="1.5"/><rect x="184" y="6" width="9" height="7" rx="1.5"/><rect x="184" y="77" width="9" height="7" rx="1.5"/><rect x="206" y="6" width="9" height="7" rx="1.5"/><rect x="206" y="77" width="9" height="7" rx="1.5"/><rect x="228" y="6" width="9" height="7" rx="1.5"/><rect x="228" y="77" width="9" height="7" rx="1.5"/><rect x="250" y="6" width="9" height="7" rx="1.5"/><rect x="250" y="77" width="9" height="7" rx="1.5"/><rect x="272" y="6" width="9" height="7" rx="1.5"/><rect x="272" y="77" width="9" height="7" rx="1.5"/><rect x="294" y="6" width="9" height="7" rx="1.5"/><rect x="294" y="77" width="9" height="7" rx="1.5"/><rect x="316" y="6" width="9" height="7" rx="1.5"/><rect x="316" y="77" width="9" height="7" rx="1.5"/><rect x="338" y="6" width="9" height="7" rx="1.5"/><rect x="338" y="77" width="9" height="7" rx="1.5"/><rect x="360" y="6" width="9" height="7" rx="1.5"/><rect x="360" y="77" width="9" height="7" rx="1.5"/><rect x="382" y="6" width="9" height="7" rx="1.5"/><rect x="382" y="77" width="9" height="7" rx="1.5"/><rect x="404" y="6" width="9" height="7" rx="1.5"/><rect x="404" y="77" width="9" height="7" rx="1.5"/><rect x="426" y="6" width="9" height="7" rx="1.5"/><rect x="426" y="77" width="9" height="7" rx="1.5"/><rect x="448" y="6" width="9" height="7" rx="1.5"/><rect x="448" y="77" width="9" height="7" rx="1.5"/><rect x="470" y="6" width="9" height="7" rx="1.5"/><rect x="470" y="77" width="9" height="7" rx="1.5"/><rect x="492" y="6" width="9" height="7" rx="1.5"/><rect x="492" y="77" width="9" height="7" rx="1.5"/><rect x="514" y="6" width="9" height="7" rx="1.5"/><rect x="514" y="77" width="9" height="7" rx="1.5"/><rect x="536" y="6" width="9" height="7" rx="1.5"/><rect x="536" y="77" width="9" height="7" rx="1.5"/><rect x="558" y="6" width="9" height="7" rx="1.5"/><rect x="558" y="77" width="9" height="7" rx="1.5"/><rect x="10" y="20" width="96" height="50" rx="3"/><rect x="120" y="20" width="96" height="50" rx="3"/><rect x="230" y="20" width="96" height="50" rx="3"/><rect x="340" y="20" width="96" height="50" rx="3"/><rect x="450" y="20" width="96" height="50" rx="3"/></svg>
+          <div class="collage rv" id="collage"></div>
+        </div>
       </div>
       <div class="facts rv">
         <div class="fact"><b>23 anos</b><span>de idade, editando desde os 16</span></div>
@@ -323,6 +365,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   <section id="contato" class="contact">
     <div class="wrap">
+      <svg class="deco deco-curve" data-depth="10" viewBox="0 0 520 220" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M0 200H520M0 110H520M0 20H520" stroke-dasharray="2 6"/>
+        <path d="M20 190C140 190 150 40 260 40S400 150 500 30"/>
+        <path d="M20 190H80M260 40H200M260 40H320M500 30L440 64" stroke-width=".8"/>
+        <circle cx="80" cy="190" r="3"/><circle cx="200" cy="40" r="3"/><circle cx="320" cy="40" r="3"/><circle cx="440" cy="64" r="3"/>
+        <path d="M20 184l6 6-6 6-6-6zM260 34l6 6-6 6-6-6zM500 24l6 6-6 6-6-6z" fill="currentColor"/>
+      </svg>
       <p class="eyebrow rv">Contato</p>
       <h2 class="serif rv">Vamos <em>conversar?</em></h2>
       <p class="rv" style="max-width:44ch;font-size:17px">Me conta o que você grava e com que frequência. Respondo em português, inglês ou espanhol.</p>
