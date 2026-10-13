@@ -194,6 +194,14 @@ section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
 .clients .eyebrow{width:100%;margin-bottom:6px}
 .clients span.c{padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;background:var(--paper)}
 
+/* clientes: nome com foto redonda embaixo */
+.clients{gap:12px}
+.clients .cl{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:124px;padding:16px 18px 18px;border:1px solid var(--line);border-radius:18px;background:var(--paper);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.clients .cl:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 12px 26px rgba(40,30,10,.08)}
+.clients .c-n{font-size:14px;line-height:1.2;text-align:center;white-space:nowrap}
+.clients .cl img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#fff;transition:scale .3s var(--ease)}
+.clients .cl:hover img{scale:1.06}
+
 /* contato */
 .contact h2{font-size:clamp(56px,10vw,150px);line-height:.9;margin-bottom:28px}
 .contact .row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
@@ -293,6 +301,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .contact .row{grid-template-columns:1fr}
 }
 @media (max-width:720px){
+  .clients{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .clients .cl{min-width:0;padding:14px 10px 16px}
+  .clients .c-n{font-size:13px;white-space:normal}
   .lang-switch button{height:30px;min-width:30px;padding:0 6px;font-size:10px}
   .nav{padding-left:16px;gap:6px}
   .lg-opts{grid-template-columns:1fr;gap:8px}
@@ -452,7 +463,14 @@ if(!l)h.classList.add("needs-gate");else if(l!=="pt"){h.classList.add("i18n-wait
       </div>
       <div class="clients rv">
         <p class="eyebrow" data-i18n="clients">Já editei para</p>
-        <span class="c">Emilly Vicky</span><span class="c">Leonzinn Lemos</span><span class="c">Jeff Bala</span><span class="c">Albbinooficial</span><span class="c">Puma</span><span class="c">TnT</span><span class="c">Antonela Braga</span><span class="c">Remax Brasil</span>
+        <div class="cl"><span class="c-n">Emilly Vicky</span><img src="clientes/emilly-vicky.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">Leonzinn Lemos</span><img src="clientes/leozinn-lemos.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">Jeff Bala</span><img src="clientes/jeff-bala.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">Albbinooficial</span><img src="clientes/albbino.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">Puma</span><img src="clientes/puma.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">TnT</span><img src="clientes/tnt.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">Antonela Braga</span><img src="clientes/antonela-braga.jpg" alt="" width="56" height="56" loading="lazy"></div>
+        <div class="cl"><span class="c-n">Remax Brasil</span><img src="clientes/remax.jpg" alt="" width="56" height="56" loading="lazy"></div>
       </div>
     </div>
   </section>
