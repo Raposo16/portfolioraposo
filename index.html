@@ -302,7 +302,7 @@ const L = (pt,en,es) => ({pt,en,es});
 /* Vídeos (mesmos dados do portfólio atual). principal = vitrine grande. */
 const SUB = {
   games: L("Games","Games","Games"), viagem: L("Viagem","Travel","Viajes"), vlogs: L("Vlogs","Vlogs","Vlogs"),
-  infantil: L("Infantil","Kids","Infantil")
+  infantil: L("Infantil","Kids","Infantil"), fitness: L("Fitness","Fitness","Fitness")
 };
 const yt = (id, titulo, canal, sub, extra={}) => ({id, titulo, canal, sub,
   desc: L(`Edição para o canal ${canal}.`, `Editing for the ${canal} channel.`, `Edición para el canal ${canal}.`), ...extra});
@@ -311,6 +311,7 @@ const VIDEOS = [
   yt("teCZLRFOlaI", L("Por dentro do hotel número 1 do mundo","Inside the world's #1 hotel","Dentro del hotel número 1 del mundo"), "Victor Nômade Nutella", SUB.viagem),
   yt("om2nfCoXRlk", L("Vlog do fim de semana","Weekend vlog","Vlog del fin de semana"), "Antonela Braga", SUB.vlogs),
   yt("h_HO1Cl8ePY", L("Saí na noite de Halloween nas Filipinas (e fui atacado)","I Went Out on Halloween Night in the Philippines (and got attacked)","Salí en la noche de Halloween en Filipinas (y me atacaron)"), "Kaique Nômade", SUB.viagem, {desc:L("Edição e thumbnail para o canal Kaique Nômade.","Editing and thumbnail for the Kaique Nômade channel.","Edición y miniatura para el canal Kaique Nômade.")}),
+  yt("gt2_XKcwvNA", L("Treinei perna com um Classic Physique e passei mal","I trained legs with a Classic Physique athlete and felt sick","Entrené pierna con un Classic Physique y me sentí mal"), "Albbino", SUB.fitness),
   yt("kI4MBIVZYrw", L("Sobrevivi às experiências mais perigosas de Bali","I survived Bali's most dangerous experiences","Sobreviví a las experiencias más peligrosas de Bali"), "Victor Nômade Nutella", SUB.viagem),
   yt("8xGPS7JHm0I", L("Escapei de uma prisão apenas cavando","I escaped from a prison just by digging","Escapé de una prisión solo cavando"), "Void X", SUB.games),
   yt("DdpckM69HsQ", L("Julgando as piores maquiagens","Judging the worst makeup","Juzgando los peores maquillajes"), "Katlenof", SUB.infantil),
@@ -330,6 +331,7 @@ const CANAIS = [
   {n:"Leozinn Deu Play", foto:"clientes/leozinn-lemos.jpg", ig:"leozinnbr"},
   {n:"Antonela Braga", foto:"clientes/antonela-braga.jpg", ig:"antonelabraga"},
   {n:"Emilly Vicky", foto:"clientes/emilly-vicky.jpg", ig:"emillyvickof"},
+  {n:"Albbino", foto:"clientes/albbino.jpg", ig:"albbinoficial"},
   {n:"Victor Nômade Nutella", foto:"clientes/victor-nomade-nutella.jpg", yt:"victornomadenutella"},
   {n:"Kaique Nômade", foto:"clientes/kaique-nomade.jpg", yt:"KAIQUEGRINGO"},
   {n:"Void X", foto:"clientes/void-x.jpg", yt:"VoidGameX"},
@@ -435,7 +437,7 @@ function renderAll(){
   ].map(c=>`<a href="${c.h}" target="_blank" rel="noopener"><span class="eyebrow">${c.k}</span><span class="v">${c.v}</span></a>`).join("");
 }
 /* vitrine giratória: ordem = VITRINE; começa no do meio (Leozinn) */
-const VITRINE=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
 let atual=0;
 function renderVitrine(){
   const vs=VITRINE.map(id=>VIDEOS.find(v=>v.id===id));
