@@ -440,9 +440,13 @@ function renderAll(){
 }
 /* vitrine giratória: ordem = VITRINE; começa no do meio (Leozinn) */
 const AVISO="Notice: this is an editing enhancement of an existing channel's video.";
-const VITRINE=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE_PT=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+/* em inglês, o vídeo de aprimoramento abre no centro; Victor fica à esquerda e Leozinn à direita */
+const VITRINE_EN=["rTHDaHe5RPc","kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+let VITRINE=VITRINE_PT;
 let atual=0;
 function renderVitrine(){
+  VITRINE=LANG==="en"?VITRINE_EN:VITRINE_PT; atual=0;
   const vs=VITRINE.map(id=>VIDEOS.find(v=>v.id===id));
   $("#showcase").innerHTML=`<div class="stage" id="stage" role="region" aria-roledescription="carrossel" aria-label="${esc(t("v.h2"))}">${vs.map((v,i)=>`
     <div class="slide" data-n="${i}" aria-hidden="true">
