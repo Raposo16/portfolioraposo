@@ -440,15 +440,15 @@ function renderAll(){
 }
 /* vitrine giratória: ordem = VITRINE; começa no do meio (Leozinn) */
 const AVISO="Notice: this is an editing enhancement of an existing channel's video.";
-const VITRINE=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
 let atual=0;
 function renderVitrine(){
   const vs=VITRINE.map(id=>VIDEOS.find(v=>v.id===id));
   $("#showcase").innerHTML=`<div class="stage" id="stage" role="region" aria-roledescription="carrossel" aria-label="${esc(t("v.h2"))}">${vs.map((v,i)=>`
     <div class="slide" data-n="${i}" aria-hidden="true">
-      <button class="card main" data-vid="${v.id}" tabindex="-1" aria-label="${esc(T(v.titulo))}"><span class="tag">${esc(v.canal)}</span><img src="${capa(v.id)}" data-id="${v.id}" alt="" onerror="${fallback}"><span class="play" aria-hidden="true"></span></button>
+      <button class="card main" data-vid="${v.id}" tabindex="-1" aria-label="${esc(T(v.titulo))}"><span class="tag">${v.aviso?"Edit enhancement":esc(v.canal)}</span><img src="${capa(v.id)}" data-id="${v.id}" alt="" onerror="${fallback}"><span class="play" aria-hidden="true"></span></button>
       <span class="side-hit" data-go="${i}"></span>
-      <div class="info"><b>${esc(T(v.titulo))}</b><span>${esc(v.canal)}</span></div>
+      <div class="info"><b>${esc(T(v.titulo))}</b><span>${v.aviso?"Editing enhancement of an existing channel's video":esc(v.canal)}</span></div>
     </div>`).join("")}</div>
     <button class="arrow prev" data-move="-1" aria-label="${esc(t("ant"))}">←</button>
     <button class="arrow next" data-move="1" aria-label="${esc(t("prox"))}">→</button>
