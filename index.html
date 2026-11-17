@@ -392,13 +392,13 @@ const VIDEOS = [
   yt("teCZLRFOlaI", L("Por dentro do hotel número 1 do mundo","Inside the world's #1 hotel","Dentro del hotel número 1 del mundo"), "Victor Nômade Nutella", SUB.viagem),
   yt("om2nfCoXRlk", L("Vlog do fim de semana","Weekend vlog","Vlog del fin de semana"), "Antonela Braga", SUB.vlogs),
   yt("h_HO1Cl8ePY", L("Saí na noite de Halloween nas Filipinas (e fui atacado)","I Went Out on Halloween Night in the Philippines (and got attacked)","Salí en la noche de Halloween en Filipinas (y me atacaron)"), "Kaique Nômade", SUB.viagem, {desc:L("Edição e thumbnail para o canal Kaique Nômade.","Editing and thumbnail for the Kaique Nômade channel.","Edición y miniatura para el canal Kaique Nômade.")}),
-  yt("pNpMRCMHWjU", L("The Angry Driver Turned Into a Monster!","The Angry Driver Turned Into a Monster!","The Angry Driver Turned Into a Monster!"), "Mafia Of Gta", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
   yt("VEZ-RyPVkJk", L("Eating One Color Food For 24 Hours","Eating One Color Food For 24 Hours","Eating One Color Food For 24 Hours"), "Taj and B Family", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
   yt("rTHDaHe5RPc", L("Aprimoramento de edição","Editing enhancement","Mejora de edición"), "Felipe Raposo", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
   yt("gt2_XKcwvNA", L("Treinei perna com um Classic Physique e passei mal","I trained legs with a Classic Physique athlete and felt sick","Entrené pierna con un Classic Physique y me sentí mal"), "Albbino", SUB.fitness),
   yt("kI4MBIVZYrw", L("Sobrevivi às experiências mais perigosas de Bali","I survived Bali's most dangerous experiences","Sobreviví a las experiencias más peligrosas de Bali"), "Victor Nômade Nutella", SUB.viagem),
   yt("8xGPS7JHm0I", L("Escapei de uma prisão apenas cavando","I escaped from a prison just by digging","Escapé de una prisión solo cavando"), "Void X", SUB.games),
   yt("DdpckM69HsQ", L("Julgando as piores maquiagens","Judging the worst makeup","Juzgando los peores maquillajes"), "Katlenof", SUB.infantil),
+  yt("pNpMRCMHWjU", L("The Angry Driver Turned Into a Monster!","The Angry Driver Turned Into a Monster!","The Angry Driver Turned Into a Monster!"), "Mafia Of Gta", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
 ];
 /* Thumbnails (as mesmas do portfólio atual) */
 const THUMBS = [
@@ -504,7 +504,7 @@ function renderAll(){
   // filtros
   const subs=[...new Set(VIDEOS.map(v=>T(v.sub)))];
   $("#chips").innerHTML=[t("todos"),...subs].map((s,i)=>`<button class="chip" data-f="${i?esc(s):"todos"}" aria-pressed="${(i?s:"todos")===filtro}">${esc(s)}</button>`).join("");
-  $("#grid").innerHTML=(LANG==="en"?[...VIDEOS.filter(v=>v.aviso),...VIDEOS.filter(v=>!v.aviso)]:VIDEOS).map(v=>`<article class="item" data-sub="${esc(T(v.sub))}"><button class="card" data-vid="${v.id}" aria-label="${esc(T(v.titulo))}">${v.aviso?`<span class="tag">Edit enhancement</span>`:""}${img(v)}<span class="play" aria-hidden="true"></span></button><div class="meta"><h3>${esc(T(v.titulo))}</h3><p><b>${esc(v.canal)}</b> · ${esc(T(v.sub))}</p>${v.aviso?`<p class="aviso">${esc(AVISO)}</p>`:""}</div></article>`).join("");
+  $("#grid").innerHTML=(LANG==="en"?[...VIDEOS.filter(v=>v.aviso&&v.id!=="pNpMRCMHWjU"),...VIDEOS.filter(v=>!v.aviso),...VIDEOS.filter(v=>v.id==="pNpMRCMHWjU")]:VIDEOS).map(v=>`<article class="item" data-sub="${esc(T(v.sub))}"><button class="card" data-vid="${v.id}" aria-label="${esc(T(v.titulo))}">${v.aviso?`<span class="tag">Edit enhancement</span>`:""}${img(v)}<span class="play" aria-hidden="true"></span></button><div class="meta"><h3>${esc(T(v.titulo))}</h3><p><b>${esc(v.canal)}</b> · ${esc(T(v.sub))}</p>${v.aviso?`<p class="aviso">${esc(AVISO)}</p>`:""}</div></article>`).join("");
   aplicaFiltro();
 
   // thumbs
@@ -527,9 +527,9 @@ function renderAll(){
 }
 /* vitrine giratória: ordem = VITRINE; começa no do meio (Leozinn) */
 const AVISO="Notice: this is an editing enhancement of an existing channel's video.";
-const VITRINE_PT=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","pNpMRCMHWjU","VEZ-RyPVkJk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE_PT=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","VEZ-RyPVkJk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI","pNpMRCMHWjU"];
 /* em inglês, o vídeo de aprimoramento abre no centro; Victor fica à esquerda e Leozinn à direita */
-const VITRINE_EN=["pNpMRCMHWjU","VEZ-RyPVkJk","rTHDaHe5RPc","kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE_EN=["VEZ-RyPVkJk","rTHDaHe5RPc","kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI","pNpMRCMHWjU"];
 let VITRINE=VITRINE_PT;
 let atual=0;
 function renderVitrine(){
