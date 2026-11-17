@@ -5,46 +5,48 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Raposo Edit · Edição e thumbnails para YouTubers</title>
 <meta name="description" content="Raposo Edit: edição de vídeos e thumbnails para YouTubers.">
-<meta name="theme-color" content="#08080A">
+<meta name="theme-color" content="#050412">
 <link rel="icon" href="marca/raposa.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#08080A; --bg2:#101013; --card:#15151a; --line:#26262c; --ink:#fff; --mut:#a7a7b0;
-  --or:#FF6A13; --or2:#ff8a45;
-  --disp:"Archivo","Arial Black",Impact,sans-serif; --sans:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --bg:#050412; --bg2:#0a0620; --card:#120b29; --line:#2a2148; --ink:#fff; --mut:#a9a4c4;
+  --or:#B48CFF; --or2:#cdb3ff;
+  --disp:"League Spartan",Futura,"Century Gothic",sans-serif; --sans:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
   --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background-color:var(--bg);background-image:radial-gradient(1px 1px at 12% 18%,#fff9,transparent 60%),radial-gradient(1px 1px at 68% 9%,#fff7,transparent 60%),radial-gradient(1px 1px at 84% 44%,#fff8,transparent 60%),radial-gradient(1px 1px at 31% 63%,#fff6,transparent 60%),radial-gradient(1px 1px at 52% 31%,#fff7,transparent 60%),radial-gradient(1px 1px at 7% 82%,#fff6,transparent 60%),radial-gradient(1px 1px at 92% 88%,#fff7,transparent 60%);background-size:900px 700px;color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.lock{overflow:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%}
 :focus-visible{outline:3px solid var(--or);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
-.disp{font-family:var(--disp);font-weight:900;letter-spacing:-.02em;line-height:.98}
+.disp{font-family:var(--disp);font-weight:800;letter-spacing:-.02em;line-height:.98}
 .or{color:var(--or)}
 .eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-h2.sec{font-family:var(--disp);font-weight:900;letter-spacing:-.02em;line-height:1;font-size:clamp(30px,4.4vw,52px)}
+h2.sec{font-family:var(--disp);font-weight:800;letter-spacing:-.02em;line-height:1;font-size:clamp(30px,4.4vw,52px)}
 .sec-head{margin-bottom:clamp(20px,3vw,34px)}
 .sec-head p{color:var(--mut);margin-top:10px;max-width:60ch}
 section{padding:clamp(54px,8vw,104px) 0}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:12px;background:var(--or);color:#0b0b0d;font-weight:600;font-size:15px;transition:transform .2s var(--ease),background .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:12px;background:var(--or);color:#0a0620;font-weight:600;font-size:15px;transition:transform .2s var(--ease),background .2s}
 .btn:hover{transform:translateY(-2px);background:var(--or2)}
 .btn.line{background:transparent;color:var(--ink);border:1.5px solid #3a3a42}
 .btn.line:hover{border-color:var(--or);background:transparent}
 
 /* nav */
-.nav{position:fixed;inset:0 0 auto 0;z-index:30;background:rgba(8,8,10,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #17171b}
+.nav{position:fixed;inset:0 0 auto 0;z-index:30;background:rgba(5,4,18,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #17171b}
 .nav .in{max-width:1280px;margin:0 auto;padding:10px clamp(16px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;font:900 clamp(20px,2.4vw,26px)/1 var(--disp);letter-spacing:-.01em;white-space:nowrap}
+.brand{display:flex;align-items:center;gap:10px;font:800 clamp(20px,2.4vw,26px)/1 var(--disp);letter-spacing:-.01em;white-space:nowrap}
 .brand img{height:34px;width:auto}
-.brand b{color:var(--or);font-weight:900}
+.brand b{color:var(--or);font-weight:800}
+.brand .rp{font-size:1.35em;letter-spacing:-.03em}
+.hero h1,.contact h2,h2.sec{letter-spacing:-.03em}
 .nav nav{display:flex;align-items:center;gap:6px}
 .nav nav a.l{padding:10px 14px;border-radius:10px;font-size:14px;font-weight:500;color:#d6d6dc}
 .nav nav a.l:hover{color:#fff;background:#17171b}
@@ -54,6 +56,8 @@ section{padding:clamp(54px,8vw,104px) 0}
 .lang button[aria-pressed=true]{color:#fff;background:#1d1d22;box-shadow:inset 0 -2px 0 var(--or)}
 
 /* hero */
+.hero::before{content:"";position:absolute;inset:-10% -10% 0;background:radial-gradient(40% 55% at 82% 22%,rgba(140,70,255,.30),transparent 70%),radial-gradient(38% 50% at 12% 78%,rgba(40,80,255,.24),transparent 70%),radial-gradient(30% 40% at 95% 95%,rgba(220,60,200,.14),transparent 70%);pointer-events:none}
+.hero>.wrap{position:relative}
 .hero{position:relative;padding:clamp(104px,14vh,140px) 0 clamp(40px,6vw,70px);text-align:center;overflow:hidden}
 .hero h1{font-size:clamp(40px,8vw,104px);max-width:14ch;margin:0 auto}
 .hero .sub{font-size:clamp(17px,2vw,22px);color:#d6d6dc;margin:18px auto 26px;max-width:46ch}
@@ -75,8 +79,8 @@ section{padding:clamp(54px,8vw,104px) 0}
 .slide:not(.on) .info{opacity:0}
 .slide .info b{display:block;font-size:15px;font-weight:600;line-height:1.3}
 .slide .info span{color:var(--or2);font-size:13px;font-weight:600}
-.arrow{position:absolute;top:calc(var(--w) * 9 / 32);transform:translateY(-50%);z-index:20;width:48px;height:48px;border-radius:50%;background:rgba(8,8,10,.75);border:1.5px solid #3a3a42;display:grid;place-items:center;font-size:20px;transition:background .2s,border-color .2s}
-.arrow:hover{background:var(--or);border-color:var(--or);color:#0b0b0d}
+.arrow{position:absolute;top:calc(var(--w) * 9 / 32);transform:translateY(-50%);z-index:20;width:48px;height:48px;border-radius:50%;background:rgba(5,4,18,.75);border:1.5px solid #3a3a42;display:grid;place-items:center;font-size:20px;transition:background .2s,border-color .2s}
+.arrow:hover{background:var(--or);border-color:var(--or);color:#0a0620}
 .arrow.prev{left:0}.arrow.next{right:0}
 .dots{display:flex;gap:8px;justify-content:center;margin-top:6px}
 .dots button{width:28px;height:28px;display:grid;place-items:center}
@@ -85,21 +89,21 @@ section{padding:clamp(54px,8vw,104px) 0}
 .card{position:relative;display:block;width:100%;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);aspect-ratio:16/9;transition:transform .35s var(--ease),border-color .25s}
 .card:hover{transform:translateY(-4px);border-color:var(--or)}
 .card img{width:100%;height:100%;object-fit:cover}
-.card .play{position:absolute;left:50%;top:50%;width:clamp(44px,6vw,72px);height:clamp(44px,6vw,72px);transform:translate(-50%,-50%);border-radius:50%;background:rgba(8,8,10,.55);border:2px solid #fff;display:grid;place-items:center;transition:background .2s,transform .2s}
+.card .play{position:absolute;left:50%;top:50%;width:clamp(44px,6vw,72px);height:clamp(44px,6vw,72px);transform:translate(-50%,-50%);border-radius:50%;background:rgba(5,4,18,.55);border:2px solid #fff;display:grid;place-items:center;transition:background .2s,transform .2s}
 .card:hover .play{background:var(--or);border-color:var(--or);transform:translate(-50%,-50%) scale(1.06)}
 .card .play::after{content:"";margin-left:4px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}
 .showcase .card .cap{display:none}
 .card .cap{position:absolute;inset:auto 0 0 0;padding:34px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.82));font-size:13px;font-weight:600;line-height:1.3}
 .card .cap small{display:block;font-weight:500;color:#cfcfd6;font-size:12px}
-.card.main{box-shadow:0 18px 60px rgba(255,106,19,.12)}
+.card.main{box-shadow:0 18px 60px rgba(180,140,255,.12)}
 .card.main .cap{font-size:15px}
-.tag{position:absolute;left:10px;top:10px;z-index:2;background:var(--or);color:#0b0b0d;font:600 11px/1 var(--mono);padding:6px 9px;border-radius:7px;letter-spacing:.04em;text-transform:uppercase}
+.tag{position:absolute;left:10px;top:10px;z-index:2;background:var(--or);color:#0a0620;font:600 11px/1 var(--mono);padding:6px 9px;border-radius:7px;letter-spacing:.04em;text-transform:uppercase}
 
 /* galeria */
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .chip{min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid #34343c;font-size:14px;font-weight:500;color:#d6d6dc;transition:all .2s}
 .chip:hover{border-color:var(--or)}
-.chip[aria-pressed=true]{background:var(--or);border-color:var(--or);color:#0b0b0d}
+.chip[aria-pressed=true]{background:var(--or);border-color:var(--or);color:#0a0620}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,22px)}
 .item .meta{padding:10px 2px 0}
 .item h3{font-size:16px;font-weight:600;line-height:1.35}
@@ -121,7 +125,7 @@ section{padding:clamp(54px,8vw,104px) 0}
 .about h2{margin:14px 0 18px}
 .about p.t{color:#d6d6dc;margin-bottom:14px;max-width:58ch}
 .facts{display:flex;gap:clamp(16px,3vw,36px);flex-wrap:wrap;margin:22px 0}
-.facts div b{display:block;font:900 clamp(24px,3vw,34px)/1 var(--disp);color:var(--or)}
+.facts div b{display:block;font:800 clamp(24px,3vw,34px)/1 var(--disp);color:var(--or)}
 .facts div span{font-size:13px;color:var(--mut)}
 .trip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
 .trip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
@@ -131,7 +135,7 @@ section{padding:clamp(54px,8vw,104px) 0}
 .ch{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);min-height:68px;transition:border-color .2s}
 a.ch:hover{border-color:var(--or)}
 .ch img{width:44px;height:44px;border-radius:50%;object-fit:cover}
-.ch .ini{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#1f1f25;color:var(--or);font:900 16px/1 var(--disp)}
+.ch .ini{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#1f1f25;color:var(--or);font:800 16px/1 var(--disp)}
 .mais{color:var(--or);white-space:nowrap}
 .ch b{display:block;font-size:14px;line-height:1.25}
 .ch small{color:var(--mut);font-size:12px;overflow-wrap:anywhere;display:block}
@@ -157,6 +161,55 @@ a.ch:hover{border-color:var(--or)}
 footer{padding:26px 0;border-top:1px solid #17171b;color:var(--mut);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
+/* venda */
+.proof{border-block:1px solid #17171b;background:var(--bg2)}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:26px}
+.proof div{text-align:center}
+.proof b{display:block;font:800 clamp(26px,3.4vw,40px)/1 var(--disp);color:#fff}
+.proof b .or{color:var(--or);display:inline;margin:0;font-size:inherit}
+.proof span{display:block;margin-top:6px;color:var(--mut);font-size:13.5px}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc article{position:relative;display:flex;flex-direction:column;padding:26px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.svc article.pop{border-color:var(--or);box-shadow:0 18px 60px rgba(180,140,255,.10)}
+.svc .badge{position:absolute;top:-12px;left:22px;background:var(--or);color:#0a0620;font:600 11px/1 var(--mono);padding:7px 10px;border-radius:7px;letter-spacing:.06em;text-transform:uppercase}
+.svc h3{font:800 22px/1.2 var(--disp);margin-bottom:6px}
+.svc .for{color:var(--mut);font-size:14px;margin-bottom:16px}
+.svc ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;flex:1}
+.svc li{position:relative;padding-left:26px;font-size:14.5px;color:#e4e4ea}
+.svc li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:7px;border-left:2px solid var(--or);border-bottom:2px solid var(--or);transform:rotate(-45deg)}
+.svc .btn{width:100%}
+.test{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 28px;border-radius:18px;border:1px dashed #4a3326;background:linear-gradient(90deg,rgba(180,140,255,.10),rgba(180,140,255,.02))}
+.test h3{font:800 clamp(20px,2.4vw,26px)/1.2 var(--disp)}
+.test p{color:#d6d6dc;font-size:14.5px;margin-top:4px;max-width:60ch}
+.faq{max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:20px 2px;font-weight:600;font-size:16.5px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--or);font:500 24px/1 var(--mono);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--mut);padding:0 2px 20px;max-width:70ch}
+.contact .big{margin:0 auto 22px}
+.sticky{display:none}
+@media (max-width:900px){.svc{grid-template-columns:1fr}.proof .wrap{grid-template-columns:repeat(2,1fr);row-gap:22px}}
+@media (max-width:640px){
+  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  footer{padding-bottom:84px}
+}
+
+/* baralho 3D (canais) */
+.deck{position:relative;width:min(640px,80vw);aspect-ratio:16/10;margin:56px auto 0;perspective:1600px}
+.nav .btn{white-space:nowrap}
+.deck .dc{position:absolute;inset:0;border-radius:18px;overflow:hidden;border:1px solid #2a2a30;background:#111;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s,filter .9s;cursor:pointer;box-shadow:0 30px 70px rgba(0,0,0,.6);padding:0;display:block;width:100%}
+.deck .dc img.t{width:100%;height:100%;object-fit:cover}
+.deck .dtag{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;background:rgba(5,4,18,.8);backdrop-filter:blur(8px);padding:7px 16px 7px 7px;border-radius:999px;border:1px solid #ffffff1a;text-align:left}
+.deck .dtag img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.deck .dtag b{font-size:15px;line-height:1.1;display:block}
+.deck .dtag small{display:block;font:500 11px var(--mono);color:var(--or)}
+.ddots{display:flex;gap:2px;justify-content:center;margin:22px 0 34px}
+.ddots button{width:26px;height:26px;display:grid;place-items:center}
+.ddots button::after{content:"";width:8px;height:8px;border-radius:5px;background:#2e2e35;transition:all .4s}
+.ddots button[aria-current=true]::after{width:24px;background:var(--or)}
+
 /* janela */
 .viewer{position:fixed;inset:0;z-index:50;background:rgba(4,4,6,.92);display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px)}
 .viewer.on{display:flex}
@@ -169,7 +222,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .viewer .info a{color:var(--or2);font-weight:600}
 .viewer .info a:hover{text-decoration:underline}
 .close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;background:#1b1b20;border:1px solid #34343c;font-size:18px;z-index:2}
-.close:hover{background:var(--or);color:#0b0b0d}
+.close:hover{background:var(--or);color:#0a0620}
 
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -205,15 +258,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <body>
 
 <header class="nav"><div class="in">
-  <a class="brand" href="#top" aria-label="Raposo Edit"><img src="marca/raposa.svg" alt="" width="30" height="34"><span>RAPOSO <b>EDIT</b></span></a>
+  <a class="brand" href="#top" aria-label="Raposo Edit"><span class="rp">raposo<b>.</b></span></a>
   <nav aria-label="Menu">
     <a class="l" href="#videos" data-i="nav.videos">Vídeos</a>
     <a class="l" href="#thumbs" data-i="nav.thumbs">Thumbnails</a>
+    <a class="l" href="#servicos" data-i="nav.svc">Serviços</a>
     <a class="l" href="#sobre" data-i="nav.about">Sobre</a>
     <div class="lang" role="group" aria-label="Idioma / Language / Idioma">
       <button data-lang="pt" lang="pt-BR">PT</button><button data-lang="en" lang="en">EN</button><button data-lang="es" lang="es">ES</button>
     </div>
-    <a class="btn" href="#contato" data-i="nav.talk">Vamos conversar</a>
+    <a class="btn" href="#contato" data-i="nav.quote">Pedir orçamento</a>
   </nav>
 </div></header>
 
@@ -225,13 +279,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <h1 class="disp rv" id="h1">Seu próximo vídeo <span class="or">começa aqui.</span></h1>
     <p class="sub rv" data-i="hero.sub">Edição e thumbnails no estilo do seu canal.</p>
     <div class="ctas rv">
-      <a class="btn" href="#videos" data-i="hero.cta1">Ver trabalhos</a>
-      <a class="btn line" href="#contato" data-i="nav.talk">Vamos conversar</a>
+      <a class="btn" href="#teste" data-i="hero.cta2">Quero um teste grátis</a>
+      <a class="btn line" href="#videos" data-i="hero.cta1">Ver trabalhos</a>
     </div>
-    <svg class="vec tl" viewBox="0 0 330 46" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M0 23H330" stroke-dasharray="1 7"/><rect x="6" y="14" width="64" height="18" rx="5"/><rect x="78" y="14" width="110" height="18" rx="5"/><rect x="196" y="14" width="64" height="18" rx="5"/><g style="color:#FF6A13" stroke="#FF6A13"><path d="M132 2V44"/><path d="M126 2h12l-6 7z" fill="#FF6A13"/></g></svg>
+    <svg class="vec tl" viewBox="0 0 330 46" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M0 23H330" stroke-dasharray="1 7"/><rect x="6" y="14" width="64" height="18" rx="5"/><rect x="78" y="14" width="110" height="18" rx="5"/><rect x="196" y="14" width="64" height="18" rx="5"/><g style="color:#B48CFF" stroke="#B48CFF"><path d="M132 2V44"/><path d="M126 2h12l-6 7z" fill="#B48CFF"/></g></svg>
     <div class="showcase" id="showcase"></div>
   </div>
 </div>
+
+<div class="proof"><div class="wrap">
+  <div><b>100M<span class="or">+</span></b><span data-i="pr0"></span></div>
+  <div><b>30<span class="or">+</span></b><span data-i="pr1"></span></div>
+  <div><b>6<span class="or">+</span></b><span data-i="pr2"></span></div>
+  <div><b>3</b><span data-i="pr3"></span></div>
+</div></div>
 
 <section id="videos"><div class="wrap">
   <div class="sec-head rv"><h2 class="sec" data-i="v.h2">Vídeos</h2><p data-i="v.p">Edições que fiz para canais do YouTube. Clique para assistir aqui mesmo.</p></div>
@@ -242,6 +303,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="thumbs" style="padding-top:0"><div class="wrap">
   <div class="sec-head rv"><h2 class="sec" data-i="t.h2">Thumbnails</h2><p data-i="t.p">Capas que criei para vídeos no YouTube. Clique para ampliar.</p></div>
   <div class="thumbs" id="thumbgrid"></div>
+</div></section>
+
+<section id="servicos" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><p class="eyebrow" data-i="s.eye"></p><h2 class="sec" data-i="s.h2" style="margin-top:12px"></h2><p data-i="s.p"></p></div>
+  <div class="svc">
+    <article class="rv"><h3 data-i="s1.t"></h3><p class="for" data-i="s1.f"></p><ul data-list="s1.l"></ul><a class="btn line" data-wa="s1.msg" target="_blank" rel="noopener" data-i="nav.quote"></a></article>
+    <article class="rv pop"><span class="badge" data-i="s2.b"></span><h3 data-i="s2.t"></h3><p class="for" data-i="s2.f"></p><ul data-list="s2.l"></ul><a class="btn" data-wa="s2.msg" target="_blank" rel="noopener" data-i="nav.quote"></a></article>
+    <article class="rv"><h3 data-i="s3.t"></h3><p class="for" data-i="s3.f"></p><ul data-list="s3.l"></ul><a class="btn line" data-wa="s3.msg" target="_blank" rel="noopener" data-i="nav.quote"></a></article>
+  </div>
+  <div class="test rv" id="teste">
+    <div><h3 data-i="tt.h"></h3><p data-i="tt.p"></p></div>
+    <a class="btn" data-wa="tt.msg" target="_blank" rel="noopener" data-i="tt.btn"></a>
+  </div>
 </div></section>
 
 <section id="sobre" class="about"><div class="wrap"><div class="g">
@@ -266,25 +340,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section id="canais"><div class="wrap">
   <div class="sec-head rv"><h2 class="sec"><span data-i="c.h2">Canais para os quais já editei</span> <span class="mais">+30</span></h2><p data-i="c.p"></p></div>
+  <div class="deck rv" id="deck"></div>
+  <div class="ddots" id="ddots"></div>
   <div class="chan" id="chan"></div>
 </div></section>
 
-<section id="processo" style="padding-top:0"><div class="wrap">
-  <div class="sec-head rv"><h2 class="sec" data-i="p.h2">Como funciona</h2></div>
-  <div class="steps">
-    <div class="step rv"><h3 data-i="p1.t"></h3><p data-i="p1.d"></p></div>
-    <div class="step rv"><h3 data-i="p2.t"></h3><p data-i="p2.d"></p></div>
-    <div class="step rv"><h3 data-i="p3.t"></h3><p data-i="p3.d"></p></div>
-    <div class="step rv"><h3 data-i="p4.t"></h3><p data-i="p4.d"></p></div>
+
+<section id="faq" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><h2 class="sec" data-i="q.h2"></h2></div>
+  <div class="faq rv">
+    <details><summary data-i="q1.q"></summary><p data-i="q1.a"></p></details>
+    <details><summary data-i="q2.q"></summary><p data-i="q2.a"></p></details>
+    <details><summary data-i="q3.q"></summary><p data-i="q3.a"></p></details>
+    <details><summary data-i="q4.q"></summary><p data-i="q4.a"></p></details>
+    <details><summary data-i="q5.q"></summary><p data-i="q5.a"></p></details>
   </div>
 </div></section>
 
 <section id="contato" class="contact"><div class="wrap">
   <h2 class="disp rv" data-i="k.h2">Vamos trabalhar no seu próximo vídeo?</h2>
   <p class="s rv" data-i="k.p"></p>
+  <a class="btn big rv" data-wa="k.msg" target="_blank" rel="noopener" data-i="k.btn"></a>
   <div class="channels rv" id="channels"></div>
 </div></section>
 </main>
+<a class="btn sticky" href="#contato" data-i="nav.quote"></a>
 
 <footer><div class="wrap"><span>© 2026 Raposo Edit · Felipe Raposo</span><span>@raposoedit</span></div></footer>
 
@@ -303,7 +383,7 @@ const L = (pt,en,es) => ({pt,en,es});
 /* Vídeos (mesmos dados do portfólio atual). principal = vitrine grande. */
 const SUB = {
   games: L("Games","Games","Games"), viagem: L("Viagem","Travel","Viajes"), vlogs: L("Vlogs","Vlogs","Vlogs"),
-  infantil: L("Infantil","Kids","Infantil"), fitness: L("Fitness","Fitness","Fitness"), aprim: L("Aprimoramento","Enhancement","Mejora")
+  infantil: L("Entretenimento","Entertainment","Entretenimiento"), fitness: L("Fitness","Fitness","Fitness"), aprim: L("Aprimoramento","Enhancement","Mejora")
 };
 const yt = (id, titulo, canal, sub, extra={}) => ({id, titulo, canal, sub,
   desc: L(`Edição para o canal ${canal}.`, `Editing for the ${canal} channel.`, `Edición para el canal ${canal}.`), ...extra});
@@ -312,6 +392,8 @@ const VIDEOS = [
   yt("teCZLRFOlaI", L("Por dentro do hotel número 1 do mundo","Inside the world's #1 hotel","Dentro del hotel número 1 del mundo"), "Victor Nômade Nutella", SUB.viagem),
   yt("om2nfCoXRlk", L("Vlog do fim de semana","Weekend vlog","Vlog del fin de semana"), "Antonela Braga", SUB.vlogs),
   yt("h_HO1Cl8ePY", L("Saí na noite de Halloween nas Filipinas (e fui atacado)","I Went Out on Halloween Night in the Philippines (and got attacked)","Salí en la noche de Halloween en Filipinas (y me atacaron)"), "Kaique Nômade", SUB.viagem, {desc:L("Edição e thumbnail para o canal Kaique Nômade.","Editing and thumbnail for the Kaique Nômade channel.","Edición y miniatura para el canal Kaique Nômade.")}),
+  yt("pNpMRCMHWjU", L("The Angry Driver Turned Into a Monster!","The Angry Driver Turned Into a Monster!","The Angry Driver Turned Into a Monster!"), "Mafia Of Gta", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
+  yt("VEZ-RyPVkJk", L("Eating One Color Food For 24 Hours","Eating One Color Food For 24 Hours","Eating One Color Food For 24 Hours"), "Taj and B Family", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
   yt("rTHDaHe5RPc", L("Aprimoramento de edição","Editing enhancement","Mejora de edición"), "Felipe Raposo", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
   yt("gt2_XKcwvNA", L("Treinei perna com um Classic Physique e passei mal","I trained legs with a Classic Physique athlete and felt sick","Entrené pierna con un Classic Physique y me sentí mal"), "Albbino", SUB.fitness),
   yt("kI4MBIVZYrw", L("Sobrevivi às experiências mais perigosas de Bali","I survived Bali's most dangerous experiences","Sobreviví a las experiencias más peligrosas de Bali"), "Victor Nômade Nutella", SUB.viagem),
@@ -344,8 +426,8 @@ const CANAIS = [
 const MAIS_CANAIS = 30;
 
 const I18N = {
-pt:{"nav.videos":"Vídeos","nav.thumbs":"Thumbnails","nav.about":"Sobre","nav.talk":"Vamos conversar",
- "h1":"Seu próximo vídeo <span class=\"or\">começa aqui.</span>","hero.sub":"Edição e thumbnails no estilo do seu canal.","hero.cta1":"Ver trabalhos",
+pt:{"pr0":"inscritos somados nos canais que editei","s1.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento de *edição de vídeo longo* para o meu canal.","s2.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento do pacote *vídeo + thumbnail* para o meu canal.","s3.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento de *thumbnails* para o meu canal.","nav.svc": "Serviços", "nav.quote": "Pedir orçamento", "hero.cta2": "Quero um teste grátis", "pr1": "canais editados", "pr2": "anos editando para o YouTube", "pr3": "idiomas: português, inglês e espanhol", "pr4b": "Remoto", "pr4": "trabalho com clientes de qualquer país", "s.eye": "Serviços", "s.h2": "O que eu faço pelo seu canal", "s.p": "Escolha o que você precisa. O valor depende da duração e da complexidade do vídeo, e eu passo o orçamento antes de começar.", "s1.t": "Edição de vídeo longo", "s1.f": "Para vídeos de YouTube no formato horizontal.", "s1.l": ["Cortes e ritmo para segurar a atenção", "Trilha e efeitos sonoros", "Legendas e textos na tela", "Animações e zooms no estilo do canal", "Ajustes depois que você assiste"], "s2.b": "Mais completo", "s2.t": "Vídeo + thumbnail", "s2.f": "Edição e capa feitas juntas, com a mesma ideia.", "s2.l": ["Tudo da edição de vídeo longo", "Thumbnail pensada para o clique", "Sugestão de título", "Publicação no canal, se você quiser", "Ajustes depois que você assiste"], "s3.t": "Thumbnails", "s3.f": "Só a capa, para quem já tem editor.", "s3.l": ["Capa no estilo do seu canal", "Rosto, texto e cor que chamam o clique", "Arquivo pronto para subir", "Ajustes até ficar do seu jeito"], "tt.h": "Teste grátis de 60 segundos", "tt.p": "Me mande um trecho de um vídeo seu. Eu edito 60 segundos dele sem custo, para você ver como fica antes de fechar.", "tt.btn": "Pedir meu teste", "tt.msg": "Olá Felipe! Vi seu portfólio e quero o teste grátis de 60 segundos.", "q.h2": "Perguntas frequentes", "q1.q": "Como eu te mando o material?", "q1.a": "Pelo Google Drive (ou outro link de sua preferência). Você me manda o material bruto e as referências do estilo do seu canal.", "q2.q": "Quanto custa?", "q2.a": "Depende da duração e da complexidade do vídeo. Me conta o que você grava e eu te passo um orçamento antes de começar.", "q3.q": "E se eu quiser mudar alguma coisa?", "q3.a": "Você assiste, me diz o que mudar e eu ajusto. O vídeo só fica pronto quando estiver do seu jeito.", "q4.q": "Você atende de outro país?", "q4.a": "Sim. Trabalho remoto com clientes de vários países e falo português, inglês e espanhol.", "q5.q": "Você faz Shorts e Reels?", "q5.a": "Sim, também edito vídeos verticais. O foco aqui é o YouTube, mas é só me falar o que você precisa.", "k.btn": "Falar no WhatsApp", "k.msg": "Olá Felipe! Vi seu portfólio e quero um orçamento de edição.","nav.videos":"Vídeos","nav.thumbs":"Thumbnails","nav.about":"Sobre","nav.talk":"Vamos conversar",
+ "h1":"Seu próximo vídeo <span class=\"or\">começa aqui.</span>","hero.sub":"Edição de vídeo e thumbnails para YouTubers, no estilo do seu canal.","hero.cta1":"Ver trabalhos",
  "v.h2":"Vídeos","v.p":"Edições que fiz para canais do YouTube. Clique para assistir aqui mesmo.",
  "t.h2":"Thumbnails","t.p":"Capas que criei para vídeos no YouTube. Clique para ampliar.",
  "a.eye":"Quem está por trás dos vídeos","a.h2":"Sou o Felipe.",
@@ -360,8 +442,8 @@ pt:{"nav.videos":"Vídeos","nav.thumbs":"Thumbnails","nav.about":"Sobre","nav.ta
  "p4.t":"Entrega","p4.d":"O vídeo pronto, e a thumbnail e a publicação se você quiser.",
  "k.h2":"Vamos trabalhar no seu próximo vídeo?","k.p":"Me conta o que você grava e com que frequência. Respondo em português, inglês ou espanhol.",
  "assistir":"Assistir no YouTube","ant":"Anterior","prox":"Próximo","fechar":"Fechar","todos":"Todos","ampliar":"Ampliar","edicao":"Edição","thumbDe":"Thumbnail que fiz","canal":"Canal","meta":"Raposo Edit · Edição e thumbnails para YouTubers"},
-en:{"nav.videos":"Videos","nav.thumbs":"Thumbnails","nav.about":"About","nav.talk":"Let's talk",
- "h1":"Your next video <span class=\"or\">starts here.</span>","hero.sub":"Editing and thumbnails in your channel's style.","hero.cta1":"See my work",
+en:{"pr0":"combined subscribers on channels I've edited for","s1.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for *long-form editing* for my channel.","s2.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for the *video + thumbnail* package for my channel.","s3.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for *thumbnails* for my channel.","nav.svc": "Services", "nav.quote": "Get a quote", "hero.cta2": "Get a free test edit", "pr1": "channels edited", "pr2": "years editing for YouTube", "pr3": "languages: English, Portuguese and Spanish", "pr4b": "Remote", "pr4": "working with clients in any country", "s.eye": "Services", "s.h2": "What I do for your channel", "s.p": "Pick what you need. Pricing depends on the length and complexity of the video, and you get a quote before I start.", "s1.t": "Long-form editing", "s1.f": "For horizontal YouTube videos.", "s1.l": ["Cuts and pacing that hold attention", "Music and sound effects", "Captions and on-screen text", "Animations and zooms in your channel's style", "Revisions after you watch it"], "s2.b": "Most complete", "s2.t": "Video + thumbnail", "s2.f": "Edit and thumbnail made together, around the same idea.", "s2.l": ["Everything in long-form editing", "Thumbnail designed for the click", "Title suggestions", "Upload to your channel, if you want", "Revisions after you watch it"], "s3.t": "Thumbnails", "s3.f": "Just the thumbnail, if you already have an editor.", "s3.l": ["Thumbnail in your channel's style", "Face, text and color that drive the click", "File ready to upload", "Revisions until it feels right"], "tt.h": "Free 60-second test edit", "tt.p": "Send me a clip from one of your videos. I'll edit 60 seconds of it for free, so you can see the result before we work together.", "tt.btn": "Get my test edit", "tt.msg": "Hi Felipe! I saw your portfolio and I'd like the free 60-second test edit.", "q.h2": "FAQ", "q1.q": "How do I send you the footage?", "q1.a": "Through Google Drive (or any link you prefer). You send me the raw footage and some references of your channel's style.", "q2.q": "How much does it cost?", "q2.a": "It depends on the length and complexity of the video. Tell me what you film and I'll send you a quote before I start.", "q3.q": "What if I want changes?", "q3.a": "You watch it, tell me what to change and I adjust it. The video is done when it feels right to you.", "q4.q": "Do you work with clients outside Brazil?", "q4.a": "Yes. I work remotely with clients from many countries, in English, Portuguese and Spanish.", "q5.q": "Do you edit Shorts and Reels?", "q5.a": "Yes, I edit vertical videos too. My focus here is YouTube, but just tell me what you need.", "k.btn": "Message me on WhatsApp", "k.msg": "Hi Felipe! I saw your portfolio and I'd like a quote for video editing.","nav.videos":"Videos","nav.thumbs":"Thumbnails","nav.about":"About","nav.talk":"Let's talk",
+ "h1":"Your next video <span class=\"or\">starts here.</span>","hero.sub":"Video editing and thumbnails for YouTube creators, in your channel's style.","hero.cta1":"See my work",
  "v.h2":"Videos","v.p":"Edits I made for YouTube channels. Click to watch right here.",
  "t.h2":"Thumbnails","t.p":"Covers I created for YouTube videos. Click to enlarge.",
  "a.eye":"The person behind the videos","a.h2":"I'm Felipe.",
@@ -376,8 +458,8 @@ en:{"nav.videos":"Videos","nav.thumbs":"Thumbnails","nav.about":"About","nav.tal
  "p4.t":"Delivery","p4.d":"The finished video, plus the thumbnail and publishing if you want.",
  "k.h2":"Shall we work on your next video?","k.p":"Tell me what you film and how often. I reply in Portuguese, English or Spanish.",
  "assistir":"Watch on YouTube","ant":"Previous","prox":"Next","fechar":"Close","todos":"All","ampliar":"Enlarge","edicao":"Editing","thumbDe":"Thumbnail I made","canal":"Channel","meta":"Raposo Edit · Editing and thumbnails for YouTubers"},
-es:{"nav.videos":"Videos","nav.thumbs":"Miniaturas","nav.about":"Sobre mí","nav.talk":"Hablemos",
- "h1":"Tu próximo video <span class=\"or\">empieza aquí.</span>","hero.sub":"Edición y miniaturas con el estilo de tu canal.","hero.cta1":"Ver trabajos",
+es:{"pr0":"suscriptores sumados en los canales que edité","s1.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de *edición de video largo* para mi canal.","s2.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto del paquete *video + miniatura* para mi canal.","s3.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de *miniaturas* para mi canal.","nav.svc": "Servicios", "nav.quote": "Pedir presupuesto", "hero.cta2": "Quiero una prueba gratis", "pr1": "canales editados", "pr2": "años editando para YouTube", "pr3": "idiomas: español, inglés y portugués", "pr4b": "Remoto", "pr4": "trabajo con clientes de cualquier país", "s.eye": "Servicios", "s.h2": "Lo que hago por tu canal", "s.p": "Elige lo que necesitas. El precio depende de la duración y la complejidad del video, y te paso el presupuesto antes de empezar.", "s1.t": "Edición de video largo", "s1.f": "Para videos de YouTube en formato horizontal.", "s1.l": ["Cortes y ritmo que mantienen la atención", "Música y efectos de sonido", "Subtítulos y textos en pantalla", "Animaciones y zooms con el estilo del canal", "Ajustes después de que lo veas"], "s2.b": "Más completo", "s2.t": "Video + miniatura", "s2.f": "Edición y miniatura hechas juntas, con la misma idea.", "s2.l": ["Todo lo de la edición de video largo", "Miniatura pensada para el clic", "Sugerencia de título", "Publicación en el canal, si quieres", "Ajustes después de que lo veas"], "s3.t": "Miniaturas", "s3.f": "Solo la miniatura, si ya tienes editor.", "s3.l": ["Miniatura con el estilo de tu canal", "Rostro, texto y color que atraen el clic", "Archivo listo para subir", "Ajustes hasta que quede a tu gusto"], "tt.h": "Prueba gratis de 60 segundos", "tt.p": "Envíame un fragmento de uno de tus videos. Edito 60 segundos sin costo, para que veas el resultado antes de trabajar juntos.", "tt.btn": "Pedir mi prueba", "tt.msg": "¡Hola Felipe! Vi tu portafolio y quiero la prueba gratis de 60 segundos.", "q.h2": "Preguntas frecuentes", "q1.q": "¿Cómo te envío el material?", "q1.a": "Por Google Drive (u otro enlace que prefieras). Me envías el material en bruto y referencias del estilo de tu canal.", "q2.q": "¿Cuánto cuesta?", "q2.a": "Depende de la duración y la complejidad del video. Cuéntame qué grabas y te paso un presupuesto antes de empezar.", "q3.q": "¿Y si quiero cambiar algo?", "q3.a": "Lo ves, me dices qué cambiar y lo ajusto. El video está listo cuando queda a tu gusto.", "q4.q": "¿Trabajas con clientes de otros países?", "q4.a": "Sí. Trabajo en remoto con clientes de varios países, en español, inglés y portugués.", "q5.q": "¿Editas Shorts y Reels?", "q5.a": "Sí, también edito videos verticales. Aquí el foco es YouTube, pero solo dime lo que necesitas.", "k.btn": "Escríbeme por WhatsApp", "k.msg": "¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de edición.","nav.videos":"Videos","nav.thumbs":"Miniaturas","nav.about":"Sobre mí","nav.talk":"Hablemos",
+ "h1":"Tu próximo video <span class=\"or\">empieza aquí.</span>","hero.sub":"Edición de video y miniaturas para YouTubers, con el estilo de tu canal.","hero.cta1":"Ver trabajos",
  "v.h2":"Videos","v.p":"Ediciones que hice para canales de YouTube. Haz clic para verlas aquí mismo.",
  "t.h2":"Miniaturas","t.p":"Portadas que creé para videos de YouTube. Haz clic para ampliar.",
  "a.eye":"Quién está detrás de los videos","a.h2":"Soy Felipe.",
@@ -408,18 +490,21 @@ let filtro="todos";
 function renderAll(){
   document.documentElement.lang={pt:"pt-BR",en:"en",es:"es"}[LANG];
   document.title=t("meta");
-  document.querySelectorAll("[data-i]").forEach(el=>{const k=el.dataset.i; if(t(k)!=null) el.textContent=t(k);});
+  document.querySelectorAll("[data-i]").forEach(el=>{const k=el.dataset.i; if(t(k)!=null&&!Array.isArray(t(k))) el.textContent=t(k);});
+  document.querySelectorAll("[data-list]").forEach(el=>{el.innerHTML=(t(el.dataset.list)||[]).map(x=>`<li>${esc(x)}</li>`).join("");});
+  document.querySelectorAll("[data-wa]").forEach(el=>{el.href=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(t(el.dataset.wa))}`;});
   $("#h1").innerHTML=t("h1");
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===LANG));
   $("#close").setAttribute("aria-label",t("fechar"));
 
   // vitrine
   renderVitrine();
+  renderDeck();
 
   // filtros
   const subs=[...new Set(VIDEOS.map(v=>T(v.sub)))];
   $("#chips").innerHTML=[t("todos"),...subs].map((s,i)=>`<button class="chip" data-f="${i?esc(s):"todos"}" aria-pressed="${(i?s:"todos")===filtro}">${esc(s)}</button>`).join("");
-  $("#grid").innerHTML=VIDEOS.map(v=>`<article class="item" data-sub="${esc(T(v.sub))}"><button class="card" data-vid="${v.id}" aria-label="${esc(T(v.titulo))}">${v.aviso?`<span class="tag">Edit enhancement</span>`:""}${img(v)}<span class="play" aria-hidden="true"></span></button><div class="meta"><h3>${esc(T(v.titulo))}</h3><p><b>${esc(v.canal)}</b> · ${esc(T(v.sub))}</p>${v.aviso?`<p class="aviso">${esc(AVISO)}</p>`:""}</div></article>`).join("");
+  $("#grid").innerHTML=(LANG==="en"?[...VIDEOS.filter(v=>v.aviso),...VIDEOS.filter(v=>!v.aviso)]:VIDEOS).map(v=>`<article class="item" data-sub="${esc(T(v.sub))}"><button class="card" data-vid="${v.id}" aria-label="${esc(T(v.titulo))}">${v.aviso?`<span class="tag">Edit enhancement</span>`:""}${img(v)}<span class="play" aria-hidden="true"></span></button><div class="meta"><h3>${esc(T(v.titulo))}</h3><p><b>${esc(v.canal)}</b> · ${esc(T(v.sub))}</p>${v.aviso?`<p class="aviso">${esc(AVISO)}</p>`:""}</div></article>`).join("");
   aplicaFiltro();
 
   // thumbs
@@ -442,9 +527,9 @@ function renderAll(){
 }
 /* vitrine giratória: ordem = VITRINE; começa no do meio (Leozinn) */
 const AVISO="Notice: this is an editing enhancement of an existing channel's video.";
-const VITRINE_PT=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE_PT=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","pNpMRCMHWjU","VEZ-RyPVkJk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
 /* em inglês, o vídeo de aprimoramento abre no centro; Victor fica à esquerda e Leozinn à direita */
-const VITRINE_EN=["rTHDaHe5RPc","kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
+const VITRINE_EN=["pNpMRCMHWjU","VEZ-RyPVkJk","rTHDaHe5RPc","kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI"];
 let VITRINE=VITRINE_PT;
 let atual=0;
 function renderVitrine(){
@@ -492,6 +577,28 @@ function gira(k){const n=VITRINE.length; atual=((atual+k)%n+n)%n; posiciona();}
     if(e.key==="ArrowRight"){gira(1);e.preventDefault();} if(e.key==="ArrowLeft"){gira(-1);e.preventDefault();}
   });
 })();
+/* baralho: um vídeo de cada canal; clicar na carta da frente abre o vídeo */
+const BARALHO=[["kzO1vLPsTuY","leozinn-lemos"],["teCZLRFOlaI","victor-nomade-nutella"],["h_HO1Cl8ePY","kaique-nomade"],["gt2_XKcwvNA","albbino"],["om2nfCoXRlk","antonela-braga"],["8xGPS7JHm0I","void-x"],["DdpckM69HsQ","katlenof"]];
+let dTopo=0,dHover=false,dTimer=null;
+function renderDeck(){
+  const deck=$("#deck"); if(!deck) return;
+  deck.innerHTML=BARALHO.map(([id,f],i)=>{const v=VIDEOS.find(x=>x.id===id);
+    return `<button class="dc" data-dc="${i}" aria-label="${esc(T(v.titulo))}"><img class="t" src="${capa(id)}" data-id="${id}" alt="" loading="lazy" onerror="${fallback}"><span class="dtag"><img src="clientes/${f}.jpg" alt=""><span><b>${esc(v.canal)}</b><small>${esc(T(v.sub)).toUpperCase()}</small></span></span></button>`;}).join("");
+  $("#ddots").innerHTML=BARALHO.map((b,i)=>`<button data-dd="${i}" aria-label="${i+1}"></button>`).join("");
+  deck.onmouseenter=()=>dHover=true; deck.onmouseleave=()=>dHover=false;
+  layDeck();
+  clearInterval(dTimer);
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches) dTimer=setInterval(()=>{if(!dHover&&!$("#viewer").classList.contains("on")){dTopo=(dTopo+1)%BARALHO.length;layDeck();}},2800);
+}
+function layDeck(){
+  const n=BARALHO.length;
+  document.querySelectorAll("#deck .dc").forEach((d,i)=>{const k=(i-dTopo+n)%n;
+    d.tabIndex=k===0?0:-1;
+    if(k===0){d.style.transform="translate3d(0,0,0)";d.style.opacity=1;d.style.filter="none";d.style.zIndex=20;}
+    else if(k===n-1){d.style.transform="translate3d(-120%,-6%,-200px) rotateY(35deg) rotateZ(-8deg)";d.style.opacity=0;d.style.zIndex=1;}
+    else{d.style.transform=`translate3d(${k*6}%, ${-k*5}%, ${-k*90}px) rotateY(-14deg) rotateZ(${k*2}deg)`;d.style.opacity=k>4?0:1;d.style.filter=`brightness(${1-k*.16})`;d.style.zIndex=20-k;}});
+  document.querySelectorAll("#ddots button").forEach((b,i)=>b.setAttribute("aria-current",i===dTopo));
+}
 function aplicaFiltro(){
   document.querySelectorAll("#grid .item").forEach(el=>{el.hidden=!(filtro==="todos"||el.dataset.sub===filtro);});
 }
@@ -516,6 +623,11 @@ document.addEventListener("click",e=>{
   if(th){const x=THUMBS[+th.dataset.th];
     abre(`<img src="${x.src}" alt="${esc(T(x.titulo))}">`,T(x.titulo),x.canal?`${t("thumbDe")} · ${t("canal")} ${x.canal}`:t("thumbDe"),
       x.id?`<a href="https://www.youtube.com/watch?v=${x.id}" target="_blank" rel="noopener">${t("assistir")} ↗</a>`:"");return;}
+  const dc=e.target.closest("[data-dc]");
+  if(dc){const i=+dc.dataset.dc; if(i===dTopo){ const id=BARALHO[i][0]; const v=VIDEOS.find(x=>x.id===id);
+      abre(`<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&playsinline=1" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="${esc(T(v.titulo))}"></iframe>`,T(v.titulo),T(v.desc),`<a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${t("assistir")} ↗</a>`);}
+    else {dTopo=i;layDeck();} return;}
+  const dd=e.target.closest("[data-dd]"); if(dd){dTopo=+dd.dataset.dd;layDeck();return;}
   const mv=e.target.closest("[data-move]"); if(mv){gira(+mv.dataset.move);return;}
   const go=e.target.closest("[data-go]"); if(go){atual=+go.dataset.go;posiciona();return;}
   const f=e.target.closest("[data-f]");
