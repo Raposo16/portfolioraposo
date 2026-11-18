@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Raposo Edit · Edição e thumbnails para YouTubers</title>
+<link rel="canonical" href="https://raposoedit.com/">
 <meta name="description" content="Raposo Edit: edição de vídeos e thumbnails para YouTubers.">
 <meta name="theme-color" content="#050412">
 <link rel="icon" href="marca/raposa.svg" type="image/svg+xml">
@@ -210,6 +211,65 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .ddots button::after{content:"";width:8px;height:8px;border-radius:5px;background:#2e2e35;transition:all .4s}
 .ddots button[aria-current=true]::after{width:24px;background:var(--or)}
 
+/* === dinâmico: barra, menu em pílula, faixa de canais, frase que acende === */
+.topbar{position:relative;z-index:31;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 16px;background:#0e0824;border-bottom:1px solid var(--line);font-size:13.5px;text-align:center}
+.topbar .new{background:var(--or);color:#0a0620;font:600 11px var(--mono);padding:4px 8px;border-radius:6px}
+.topbar a{border:1px solid #4b3a80;border-radius:999px;padding:3px 12px;font-weight:600;white-space:nowrap}
+.topbar a:hover{border-color:var(--or)}
+.nav{inset:auto;top:52px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 20px);border-radius:999px;border:1px solid #ffffff1c;background:rgba(18,11,41,.74);box-shadow:0 12px 40px rgba(0,0,0,.45);}
+.nav .in{padding:6px 8px 6px 22px;gap:10px}
+.nav nav a.l{border-radius:999px;white-space:nowrap}
+.nav nav a.l:hover{background:#ffffff14}
+.nav .btn{border-radius:999px}
+.lang button{border-radius:999px}
+.hero{padding-top:clamp(120px,17vh,160px)}
+.clients{padding:24px 0 28px;border-block:1px solid #151030;background:var(--bg2)}
+.clients p{text-align:center;font:500 12px var(--mono);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin-bottom:16px}
+.marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mtrack{display:flex;gap:14px;width:max-content;animation:anda 40s linear infinite}
+.marq:hover .mtrack{animation-play-state:paused}
+.mchip{display:flex;align-items:center;gap:12px;padding:8px 20px 8px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(18,11,41,.7);white-space:nowrap}
+.mchip img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.mchip b{font:700 17px var(--disp)}
+.mchip small{color:var(--or);font:500 12px var(--mono)}
+@keyframes anda{to{transform:translateX(-50%)}}
+.say{height:190vh;position:relative;padding:0}
+.say .stick{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(20px,4vw,60px);align-items:center;max-width:1440px;margin:0 auto;padding:70px clamp(16px,4vw,60px) 0;overflow:hidden}
+.say h2{font:800 clamp(36px,5.2vw,84px)/1.04 var(--disp);letter-spacing:-.035em}
+.say .w{opacity:.14;transition:opacity .25s}
+.say .w.on{opacity:1}
+.say .w.hl.on{color:var(--or)}
+.say .ph{display:inline-block;width:.95em;height:.95em;border-radius:.28em;overflow:hidden;vertical-align:-.12em;margin:0 .06em;transform:scale(.4) rotate(-10deg);opacity:0;transition:transform .5s cubic-bezier(.2,.9,.3,1.3),opacity .3s}
+.say .ph.on{transform:none;opacity:1}
+.say .ph img{width:100%;height:100%;object-fit:cover}
+.say .nums{display:flex;gap:clamp(18px,3vw,44px);margin-top:28px;flex-wrap:wrap}
+.say .nums b{display:block;font:800 clamp(26px,3vw,44px)/1 var(--disp);letter-spacing:-.02em}
+.say .nums b i{color:var(--or);font-style:normal}
+.say .nums span{font-size:13px;color:var(--mut)}
+.mos{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;transform:rotate(-4deg) scale(1.04)}
+.mos .t{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;opacity:.16;filter:grayscale(1);transform:scale(.94);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.mos .t.on{opacity:1;filter:none;transform:none;box-shadow:0 14px 40px rgba(140,70,255,.25)}
+.mos .t img{width:100%;height:100%;object-fit:cover}
+.mos .t:nth-child(1){grid-column:span 4}.mos .t:nth-child(2){grid-column:span 2;align-self:end}
+.mos .t:nth-child(3),.mos .t:nth-child(4){grid-column:span 3}
+.mos .t:nth-child(n+5){grid-column:span 2}
+.sprog{position:absolute;left:clamp(16px,4vw,60px);bottom:5vh;font:500 12px var(--mono);color:var(--mut);display:flex;align-items:center;gap:12px}
+.sprog i{display:block;width:180px;height:2px;background:var(--line);position:relative}
+.sprog i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--p,0%);background:var(--or)}
+.item.rv,.thumbs .card.rv{transform:translateY(46px) scale(.95)}
+.item.rv.in,.thumbs .card.rv.in{transform:none}
+.grid .item:nth-child(3n+2),.thumbs .card:nth-child(4n+2){transition-delay:.1s}
+.grid .item:nth-child(3n),.thumbs .card:nth-child(4n+3){transition-delay:.2s}
+.thumbs .card:nth-child(4n){transition-delay:.3s}
+@media (max-width:900px){
+  .say{height:auto}
+  .say .stick{position:static;height:auto;grid-template-columns:1fr;padding:54px 16px}
+  .mos{transform:none}
+  .sprog{display:none}
+}
+@media (max-width:640px){.nav .in{padding:6px 8px 6px 16px}.topbar{font-size:12.5px}}
+@media (prefers-reduced-motion:reduce){.mtrack{animation:none}.say .w,.say .ph,.mos .t{opacity:1!important;transform:none!important;filter:none!important}}
+
 /* janela */
 .viewer{position:fixed;inset:0;z-index:50;background:rgba(4,4,6,.92);display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px)}
 .viewer.on{display:flex}
@@ -257,7 +317,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </head>
 <body>
 
-<header class="nav"><div class="in">
+<div class="topbar"><span class="new" data-i="tb.new">NEW</span><span data-i="tb.t"></span><a href="#teste" data-i="tb.b"></a></div>
+<header class="nav" id="nav"><div class="in">
   <a class="brand" href="#top" aria-label="Raposo Edit"><span class="rp">raposo<b>.</b></span></a>
   <nav aria-label="Menu">
     <a class="l" href="#videos" data-i="nav.videos">Vídeos</a>
@@ -287,12 +348,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </div>
 
-<div class="proof"><div class="wrap">
-  <div><b>100M<span class="or">+</span></b><span data-i="pr0"></span></div>
-  <div><b>30<span class="or">+</span></b><span data-i="pr1"></span></div>
-  <div><b>6<span class="or">+</span></b><span data-i="pr2"></span></div>
-  <div><b>3</b><span data-i="pr3"></span></div>
-</div></div>
+<div class="clients"><p data-i="c.h2"></p><div class="marq"><div class="mtrack" id="mtrack"></div></div></div>
+
+<section class="say" id="say"><div class="stick">
+  <div><h2 id="frase"></h2>
+    <div class="nums"><div><b>100M<i>+</i></b><span data-i="n0"></span></div><div><b>30<i>+</i></b><span data-i="pr1"></span></div><div><b>6<i>+</i></b><span data-i="n2"></span></div><div><b>3</b><span data-i="n3"></span></div></div></div>
+  <div class="mos" id="mos" aria-hidden="true"></div>
+  <div class="sprog" aria-hidden="true"><i id="spg"></i><span>SCROLL</span></div>
+</div></section>
 
 <section id="videos"><div class="wrap">
   <div class="sec-head rv"><h2 class="sec" data-i="v.h2">Vídeos</h2><p data-i="v.p">Edições que fiz para canais do YouTube. Clique para assistir aqui mesmo.</p></div>
@@ -426,7 +489,7 @@ const CANAIS = [
 const MAIS_CANAIS = 30;
 
 const I18N = {
-pt:{"pr0":"inscritos somados nos canais que editei","s1.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento de *edição de vídeo longo* para o meu canal.","s2.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento do pacote *vídeo + thumbnail* para o meu canal.","s3.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento de *thumbnails* para o meu canal.","nav.svc": "Serviços", "nav.quote": "Pedir orçamento", "hero.cta2": "Quero um teste grátis", "pr1": "canais editados", "pr2": "anos editando para o YouTube", "pr3": "idiomas: português, inglês e espanhol", "pr4b": "Remoto", "pr4": "trabalho com clientes de qualquer país", "s.eye": "Serviços", "s.h2": "O que eu faço pelo seu canal", "s.p": "Escolha o que você precisa. O valor depende da duração e da complexidade do vídeo, e eu passo o orçamento antes de começar.", "s1.t": "Edição de vídeo longo", "s1.f": "Para vídeos de YouTube no formato horizontal.", "s1.l": ["Cortes e ritmo para segurar a atenção", "Trilha e efeitos sonoros", "Legendas e textos na tela", "Animações e zooms no estilo do canal", "Ajustes depois que você assiste"], "s2.b": "Mais completo", "s2.t": "Vídeo + thumbnail", "s2.f": "Edição e capa feitas juntas, com a mesma ideia.", "s2.l": ["Tudo da edição de vídeo longo", "Thumbnail pensada para o clique", "Sugestão de título", "Publicação no canal, se você quiser", "Ajustes depois que você assiste"], "s3.t": "Thumbnails", "s3.f": "Só a capa, para quem já tem editor.", "s3.l": ["Capa no estilo do seu canal", "Rosto, texto e cor que chamam o clique", "Arquivo pronto para subir", "Ajustes até ficar do seu jeito"], "tt.h": "Teste grátis de 60 segundos", "tt.p": "Me mande um trecho de um vídeo seu. Eu edito 60 segundos dele sem custo, para você ver como fica antes de fechar.", "tt.btn": "Pedir meu teste", "tt.msg": "Olá Felipe! Vi seu portfólio e quero o teste grátis de 60 segundos.", "q.h2": "Perguntas frequentes", "q1.q": "Como eu te mando o material?", "q1.a": "Pelo Google Drive (ou outro link de sua preferência). Você me manda o material bruto e as referências do estilo do seu canal.", "q2.q": "Quanto custa?", "q2.a": "Depende da duração e da complexidade do vídeo. Me conta o que você grava e eu te passo um orçamento antes de começar.", "q3.q": "E se eu quiser mudar alguma coisa?", "q3.a": "Você assiste, me diz o que mudar e eu ajusto. O vídeo só fica pronto quando estiver do seu jeito.", "q4.q": "Você atende de outro país?", "q4.a": "Sim. Trabalho remoto com clientes de vários países e falo português, inglês e espanhol.", "q5.q": "Você faz Shorts e Reels?", "q5.a": "Sim, também edito vídeos verticais. O foco aqui é o YouTube, mas é só me falar o que você precisa.", "k.btn": "Falar no WhatsApp", "k.msg": "Olá Felipe! Vi seu portfólio e quero um orçamento de edição.","nav.videos":"Vídeos","nav.thumbs":"Thumbnails","nav.about":"Sobre","nav.talk":"Vamos conversar",
+pt:{"tb.new": "NOVO", "tb.t": "Teste grátis de 60 segundos para o seu canal", "tb.b": "Quero →", "n0": "inscritos somados", "n2": "anos editando", "n3": "idiomas", "frase": ["Edito", "vídeos", "para", "#emilly-vicky", "criadores", "#katlenof", "com", "*100M+", "*inscritos", "#leozinn-lemos", "no", "YouTube."],"pr0":"inscritos somados nos canais que editei","s1.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento de *edição de vídeo longo* para o meu canal.","s2.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento do pacote *vídeo + thumbnail* para o meu canal.","s3.msg":"Olá Felipe! Vi seu portfólio e quero um orçamento de *thumbnails* para o meu canal.","nav.svc": "Serviços", "nav.quote": "Pedir orçamento", "hero.cta2": "Quero um teste grátis", "pr1": "canais editados", "pr2": "anos editando para o YouTube", "pr3": "idiomas: português, inglês e espanhol", "pr4b": "Remoto", "pr4": "trabalho com clientes de qualquer país", "s.eye": "Serviços", "s.h2": "O que eu faço pelo seu canal", "s.p": "Escolha o que você precisa. O valor depende da duração e da complexidade do vídeo, e eu passo o orçamento antes de começar.", "s1.t": "Edição de vídeo longo", "s1.f": "Para vídeos de YouTube no formato horizontal.", "s1.l": ["Cortes e ritmo para segurar a atenção", "Trilha e efeitos sonoros", "Legendas e textos na tela", "Animações e zooms no estilo do canal", "Ajustes depois que você assiste"], "s2.b": "Mais completo", "s2.t": "Vídeo + thumbnail", "s2.f": "Edição e capa feitas juntas, com a mesma ideia.", "s2.l": ["Tudo da edição de vídeo longo", "Thumbnail pensada para o clique", "Sugestão de título", "Publicação no canal, se você quiser", "Ajustes depois que você assiste"], "s3.t": "Thumbnails", "s3.f": "Só a capa, para quem já tem editor.", "s3.l": ["Capa no estilo do seu canal", "Rosto, texto e cor que chamam o clique", "Arquivo pronto para subir", "Ajustes até ficar do seu jeito"], "tt.h": "Teste grátis de 60 segundos", "tt.p": "Me mande um trecho de um vídeo seu. Eu edito 60 segundos dele sem custo, para você ver como fica antes de fechar.", "tt.btn": "Pedir meu teste", "tt.msg": "Olá Felipe! Vi seu portfólio e quero o teste grátis de 60 segundos.", "q.h2": "Perguntas frequentes", "q1.q": "Como eu te mando o material?", "q1.a": "Pelo Google Drive (ou outro link de sua preferência). Você me manda o material bruto e as referências do estilo do seu canal.", "q2.q": "Quanto custa?", "q2.a": "Depende da duração e da complexidade do vídeo. Me conta o que você grava e eu te passo um orçamento antes de começar.", "q3.q": "E se eu quiser mudar alguma coisa?", "q3.a": "Você assiste, me diz o que mudar e eu ajusto. O vídeo só fica pronto quando estiver do seu jeito.", "q4.q": "Você atende de outro país?", "q4.a": "Sim. Trabalho remoto com clientes de vários países e falo português, inglês e espanhol.", "q5.q": "Você faz Shorts e Reels?", "q5.a": "Sim, também edito vídeos verticais. O foco aqui é o YouTube, mas é só me falar o que você precisa.", "k.btn": "Falar no WhatsApp", "k.msg": "Olá Felipe! Vi seu portfólio e quero um orçamento de edição.","nav.videos":"Vídeos","nav.thumbs":"Thumbnails","nav.about":"Sobre","nav.talk":"Vamos conversar",
  "h1":"Seu próximo vídeo <span class=\"or\">começa aqui.</span>","hero.sub":"Edição de vídeo e thumbnails para YouTubers, no estilo do seu canal.","hero.cta1":"Ver trabalhos",
  "v.h2":"Vídeos","v.p":"Edições que fiz para canais do YouTube. Clique para assistir aqui mesmo.",
  "t.h2":"Thumbnails","t.p":"Capas que criei para vídeos no YouTube. Clique para ampliar.",
@@ -442,7 +505,7 @@ pt:{"pr0":"inscritos somados nos canais que editei","s1.msg":"Olá Felipe! Vi se
  "p4.t":"Entrega","p4.d":"O vídeo pronto, e a thumbnail e a publicação se você quiser.",
  "k.h2":"Vamos trabalhar no seu próximo vídeo?","k.p":"Me conta o que você grava e com que frequência. Respondo em português, inglês ou espanhol.",
  "assistir":"Assistir no YouTube","ant":"Anterior","prox":"Próximo","fechar":"Fechar","todos":"Todos","ampliar":"Ampliar","edicao":"Edição","thumbDe":"Thumbnail que fiz","canal":"Canal","meta":"Raposo Edit · Edição e thumbnails para YouTubers"},
-en:{"pr0":"combined subscribers on channels I've edited for","s1.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for *long-form editing* for my channel.","s2.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for the *video + thumbnail* package for my channel.","s3.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for *thumbnails* for my channel.","nav.svc": "Services", "nav.quote": "Get a quote", "hero.cta2": "Get a free test edit", "pr1": "channels edited", "pr2": "years editing for YouTube", "pr3": "languages: English, Portuguese and Spanish", "pr4b": "Remote", "pr4": "working with clients in any country", "s.eye": "Services", "s.h2": "What I do for your channel", "s.p": "Pick what you need. Pricing depends on the length and complexity of the video, and you get a quote before I start.", "s1.t": "Long-form editing", "s1.f": "For horizontal YouTube videos.", "s1.l": ["Cuts and pacing that hold attention", "Music and sound effects", "Captions and on-screen text", "Animations and zooms in your channel's style", "Revisions after you watch it"], "s2.b": "Most complete", "s2.t": "Video + thumbnail", "s2.f": "Edit and thumbnail made together, around the same idea.", "s2.l": ["Everything in long-form editing", "Thumbnail designed for the click", "Title suggestions", "Upload to your channel, if you want", "Revisions after you watch it"], "s3.t": "Thumbnails", "s3.f": "Just the thumbnail, if you already have an editor.", "s3.l": ["Thumbnail in your channel's style", "Face, text and color that drive the click", "File ready to upload", "Revisions until it feels right"], "tt.h": "Free 60-second test edit", "tt.p": "Send me a clip from one of your videos. I'll edit 60 seconds of it for free, so you can see the result before we work together.", "tt.btn": "Get my test edit", "tt.msg": "Hi Felipe! I saw your portfolio and I'd like the free 60-second test edit.", "q.h2": "FAQ", "q1.q": "How do I send you the footage?", "q1.a": "Through Google Drive (or any link you prefer). You send me the raw footage and some references of your channel's style.", "q2.q": "How much does it cost?", "q2.a": "It depends on the length and complexity of the video. Tell me what you film and I'll send you a quote before I start.", "q3.q": "What if I want changes?", "q3.a": "You watch it, tell me what to change and I adjust it. The video is done when it feels right to you.", "q4.q": "Do you work with clients outside Brazil?", "q4.a": "Yes. I work remotely with clients from many countries, in English, Portuguese and Spanish.", "q5.q": "Do you edit Shorts and Reels?", "q5.a": "Yes, I edit vertical videos too. My focus here is YouTube, but just tell me what you need.", "k.btn": "Message me on WhatsApp", "k.msg": "Hi Felipe! I saw your portfolio and I'd like a quote for video editing.","nav.videos":"Videos","nav.thumbs":"Thumbnails","nav.about":"About","nav.talk":"Let's talk",
+en:{"tb.new": "NEW", "tb.t": "Free 60-second test edit for your channel", "tb.b": "Get it →", "n0": "combined subscribers", "n2": "years editing", "n3": "languages", "frase": ["I", "edit", "videos", "for", "#emilly-vicky", "creators", "#katlenof", "with", "*100M+", "*subscribers", "#leozinn-lemos", "on", "YouTube."],"pr0":"combined subscribers on channels I've edited for","s1.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for *long-form editing* for my channel.","s2.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for the *video + thumbnail* package for my channel.","s3.msg":"Hi Felipe! I saw your portfolio and I'd like a quote for *thumbnails* for my channel.","nav.svc": "Services", "nav.quote": "Get a quote", "hero.cta2": "Get a free test edit", "pr1": "channels edited", "pr2": "years editing for YouTube", "pr3": "languages: English, Portuguese and Spanish", "pr4b": "Remote", "pr4": "working with clients in any country", "s.eye": "Services", "s.h2": "What I do for your channel", "s.p": "Pick what you need. Pricing depends on the length and complexity of the video, and you get a quote before I start.", "s1.t": "Long-form editing", "s1.f": "For horizontal YouTube videos.", "s1.l": ["Cuts and pacing that hold attention", "Music and sound effects", "Captions and on-screen text", "Animations and zooms in your channel's style", "Revisions after you watch it"], "s2.b": "Most complete", "s2.t": "Video + thumbnail", "s2.f": "Edit and thumbnail made together, around the same idea.", "s2.l": ["Everything in long-form editing", "Thumbnail designed for the click", "Title suggestions", "Upload to your channel, if you want", "Revisions after you watch it"], "s3.t": "Thumbnails", "s3.f": "Just the thumbnail, if you already have an editor.", "s3.l": ["Thumbnail in your channel's style", "Face, text and color that drive the click", "File ready to upload", "Revisions until it feels right"], "tt.h": "Free 60-second test edit", "tt.p": "Send me a clip from one of your videos. I'll edit 60 seconds of it for free, so you can see the result before we work together.", "tt.btn": "Get my test edit", "tt.msg": "Hi Felipe! I saw your portfolio and I'd like the free 60-second test edit.", "q.h2": "FAQ", "q1.q": "How do I send you the footage?", "q1.a": "Through Google Drive (or any link you prefer). You send me the raw footage and some references of your channel's style.", "q2.q": "How much does it cost?", "q2.a": "It depends on the length and complexity of the video. Tell me what you film and I'll send you a quote before I start.", "q3.q": "What if I want changes?", "q3.a": "You watch it, tell me what to change and I adjust it. The video is done when it feels right to you.", "q4.q": "Do you work with clients outside Brazil?", "q4.a": "Yes. I work remotely with clients from many countries, in English, Portuguese and Spanish.", "q5.q": "Do you edit Shorts and Reels?", "q5.a": "Yes, I edit vertical videos too. My focus here is YouTube, but just tell me what you need.", "k.btn": "Message me on WhatsApp", "k.msg": "Hi Felipe! I saw your portfolio and I'd like a quote for video editing.","nav.videos":"Videos","nav.thumbs":"Thumbnails","nav.about":"About","nav.talk":"Let's talk",
  "h1":"Your next video <span class=\"or\">starts here.</span>","hero.sub":"Video editing and thumbnails for YouTube creators, in your channel's style.","hero.cta1":"See my work",
  "v.h2":"Videos","v.p":"Edits I made for YouTube channels. Click to watch right here.",
  "t.h2":"Thumbnails","t.p":"Covers I created for YouTube videos. Click to enlarge.",
@@ -458,7 +521,7 @@ en:{"pr0":"combined subscribers on channels I've edited for","s1.msg":"Hi Felipe
  "p4.t":"Delivery","p4.d":"The finished video, plus the thumbnail and publishing if you want.",
  "k.h2":"Shall we work on your next video?","k.p":"Tell me what you film and how often. I reply in Portuguese, English or Spanish.",
  "assistir":"Watch on YouTube","ant":"Previous","prox":"Next","fechar":"Close","todos":"All","ampliar":"Enlarge","edicao":"Editing","thumbDe":"Thumbnail I made","canal":"Channel","meta":"Raposo Edit · Editing and thumbnails for YouTubers"},
-es:{"pr0":"suscriptores sumados en los canales que edité","s1.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de *edición de video largo* para mi canal.","s2.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto del paquete *video + miniatura* para mi canal.","s3.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de *miniaturas* para mi canal.","nav.svc": "Servicios", "nav.quote": "Pedir presupuesto", "hero.cta2": "Quiero una prueba gratis", "pr1": "canales editados", "pr2": "años editando para YouTube", "pr3": "idiomas: español, inglés y portugués", "pr4b": "Remoto", "pr4": "trabajo con clientes de cualquier país", "s.eye": "Servicios", "s.h2": "Lo que hago por tu canal", "s.p": "Elige lo que necesitas. El precio depende de la duración y la complejidad del video, y te paso el presupuesto antes de empezar.", "s1.t": "Edición de video largo", "s1.f": "Para videos de YouTube en formato horizontal.", "s1.l": ["Cortes y ritmo que mantienen la atención", "Música y efectos de sonido", "Subtítulos y textos en pantalla", "Animaciones y zooms con el estilo del canal", "Ajustes después de que lo veas"], "s2.b": "Más completo", "s2.t": "Video + miniatura", "s2.f": "Edición y miniatura hechas juntas, con la misma idea.", "s2.l": ["Todo lo de la edición de video largo", "Miniatura pensada para el clic", "Sugerencia de título", "Publicación en el canal, si quieres", "Ajustes después de que lo veas"], "s3.t": "Miniaturas", "s3.f": "Solo la miniatura, si ya tienes editor.", "s3.l": ["Miniatura con el estilo de tu canal", "Rostro, texto y color que atraen el clic", "Archivo listo para subir", "Ajustes hasta que quede a tu gusto"], "tt.h": "Prueba gratis de 60 segundos", "tt.p": "Envíame un fragmento de uno de tus videos. Edito 60 segundos sin costo, para que veas el resultado antes de trabajar juntos.", "tt.btn": "Pedir mi prueba", "tt.msg": "¡Hola Felipe! Vi tu portafolio y quiero la prueba gratis de 60 segundos.", "q.h2": "Preguntas frecuentes", "q1.q": "¿Cómo te envío el material?", "q1.a": "Por Google Drive (u otro enlace que prefieras). Me envías el material en bruto y referencias del estilo de tu canal.", "q2.q": "¿Cuánto cuesta?", "q2.a": "Depende de la duración y la complejidad del video. Cuéntame qué grabas y te paso un presupuesto antes de empezar.", "q3.q": "¿Y si quiero cambiar algo?", "q3.a": "Lo ves, me dices qué cambiar y lo ajusto. El video está listo cuando queda a tu gusto.", "q4.q": "¿Trabajas con clientes de otros países?", "q4.a": "Sí. Trabajo en remoto con clientes de varios países, en español, inglés y portugués.", "q5.q": "¿Editas Shorts y Reels?", "q5.a": "Sí, también edito videos verticales. Aquí el foco es YouTube, pero solo dime lo que necesitas.", "k.btn": "Escríbeme por WhatsApp", "k.msg": "¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de edición.","nav.videos":"Videos","nav.thumbs":"Miniaturas","nav.about":"Sobre mí","nav.talk":"Hablemos",
+es:{"tb.new": "NUEVO", "tb.t": "Prueba gratis de 60 segundos para tu canal", "tb.b": "La quiero →", "n0": "suscriptores sumados", "n2": "años editando", "n3": "idiomas", "frase": ["Edito", "videos", "para", "#emilly-vicky", "creadores", "#katlenof", "con", "*100M+", "*suscriptores", "#leozinn-lemos", "en", "YouTube."],"pr0":"suscriptores sumados en los canales que edité","s1.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de *edición de video largo* para mi canal.","s2.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto del paquete *video + miniatura* para mi canal.","s3.msg":"¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de *miniaturas* para mi canal.","nav.svc": "Servicios", "nav.quote": "Pedir presupuesto", "hero.cta2": "Quiero una prueba gratis", "pr1": "canales editados", "pr2": "años editando para YouTube", "pr3": "idiomas: español, inglés y portugués", "pr4b": "Remoto", "pr4": "trabajo con clientes de cualquier país", "s.eye": "Servicios", "s.h2": "Lo que hago por tu canal", "s.p": "Elige lo que necesitas. El precio depende de la duración y la complejidad del video, y te paso el presupuesto antes de empezar.", "s1.t": "Edición de video largo", "s1.f": "Para videos de YouTube en formato horizontal.", "s1.l": ["Cortes y ritmo que mantienen la atención", "Música y efectos de sonido", "Subtítulos y textos en pantalla", "Animaciones y zooms con el estilo del canal", "Ajustes después de que lo veas"], "s2.b": "Más completo", "s2.t": "Video + miniatura", "s2.f": "Edición y miniatura hechas juntas, con la misma idea.", "s2.l": ["Todo lo de la edición de video largo", "Miniatura pensada para el clic", "Sugerencia de título", "Publicación en el canal, si quieres", "Ajustes después de que lo veas"], "s3.t": "Miniaturas", "s3.f": "Solo la miniatura, si ya tienes editor.", "s3.l": ["Miniatura con el estilo de tu canal", "Rostro, texto y color que atraen el clic", "Archivo listo para subir", "Ajustes hasta que quede a tu gusto"], "tt.h": "Prueba gratis de 60 segundos", "tt.p": "Envíame un fragmento de uno de tus videos. Edito 60 segundos sin costo, para que veas el resultado antes de trabajar juntos.", "tt.btn": "Pedir mi prueba", "tt.msg": "¡Hola Felipe! Vi tu portafolio y quiero la prueba gratis de 60 segundos.", "q.h2": "Preguntas frecuentes", "q1.q": "¿Cómo te envío el material?", "q1.a": "Por Google Drive (u otro enlace que prefieras). Me envías el material en bruto y referencias del estilo de tu canal.", "q2.q": "¿Cuánto cuesta?", "q2.a": "Depende de la duración y la complejidad del video. Cuéntame qué grabas y te paso un presupuesto antes de empezar.", "q3.q": "¿Y si quiero cambiar algo?", "q3.a": "Lo ves, me dices qué cambiar y lo ajusto. El video está listo cuando queda a tu gusto.", "q4.q": "¿Trabajas con clientes de otros países?", "q4.a": "Sí. Trabajo en remoto con clientes de varios países, en español, inglés y portugués.", "q5.q": "¿Editas Shorts y Reels?", "q5.a": "Sí, también edito videos verticales. Aquí el foco es YouTube, pero solo dime lo que necesitas.", "k.btn": "Escríbeme por WhatsApp", "k.msg": "¡Hola Felipe! Vi tu portafolio y quiero un presupuesto de edición.","nav.videos":"Videos","nav.thumbs":"Miniaturas","nav.about":"Sobre mí","nav.talk":"Hablemos",
  "h1":"Tu próximo video <span class=\"or\">empieza aquí.</span>","hero.sub":"Edición de video y miniaturas para YouTubers, con el estilo de tu canal.","hero.cta1":"Ver trabajos",
  "v.h2":"Videos","v.p":"Ediciones que hice para canales de YouTube. Haz clic para verlas aquí mismo.",
  "t.h2":"Miniaturas","t.p":"Portadas que creé para videos de YouTube. Haz clic para ampliar.",
@@ -499,16 +562,17 @@ function renderAll(){
 
   // vitrine
   renderVitrine();
+  renderDinamico();
   renderDeck();
 
   // filtros
   const subs=[...new Set(VIDEOS.map(v=>T(v.sub)))];
   $("#chips").innerHTML=[t("todos"),...subs].map((s,i)=>`<button class="chip" data-f="${i?esc(s):"todos"}" aria-pressed="${(i?s:"todos")===filtro}">${esc(s)}</button>`).join("");
-  $("#grid").innerHTML=(LANG==="en"?[...VIDEOS.filter(v=>v.aviso&&v.id!=="pNpMRCMHWjU"),...VIDEOS.filter(v=>!v.aviso),...VIDEOS.filter(v=>v.id==="pNpMRCMHWjU")]:VIDEOS).map(v=>`<article class="item" data-sub="${esc(T(v.sub))}"><button class="card" data-vid="${v.id}" aria-label="${esc(T(v.titulo))}">${v.aviso?`<span class="tag">Edit enhancement</span>`:""}${img(v)}<span class="play" aria-hidden="true"></span></button><div class="meta"><h3>${esc(T(v.titulo))}</h3><p><b>${esc(v.canal)}</b> · ${esc(T(v.sub))}</p>${v.aviso?`<p class="aviso">${esc(AVISO)}</p>`:""}</div></article>`).join("");
+  $("#grid").innerHTML=(LANG==="en"?[...VIDEOS.filter(v=>v.aviso&&v.id!=="pNpMRCMHWjU"),...VIDEOS.filter(v=>!v.aviso),...VIDEOS.filter(v=>v.id==="pNpMRCMHWjU")]:VIDEOS).map(v=>`<article class="item rv" data-sub="${esc(T(v.sub))}"><button class="card" data-vid="${v.id}" aria-label="${esc(T(v.titulo))}">${v.aviso?`<span class="tag">Edit enhancement</span>`:""}${img(v)}<span class="play" aria-hidden="true"></span></button><div class="meta"><h3>${esc(T(v.titulo))}</h3><p><b>${esc(v.canal)}</b> · ${esc(T(v.sub))}</p>${v.aviso?`<p class="aviso">${esc(AVISO)}</p>`:""}</div></article>`).join("");
   aplicaFiltro();
 
   // thumbs
-  $("#thumbgrid").innerHTML=THUMBS.map((x,i)=>`<button class="card" data-th="${i}" aria-label="${t("ampliar")}: ${esc(T(x.titulo))}"><img src="${x.src}" alt="${esc(T(x.titulo))}" loading="lazy"><span class="cap">${esc(T(x.titulo))}${x.canal?`<small>${esc(x.canal)}</small>`:""}</span></button>`).join("");
+  $("#thumbgrid").innerHTML=THUMBS.map((x,i)=>`<button class="card rv" data-th="${i}" aria-label="${t("ampliar")}: ${esc(T(x.titulo))}"><img src="${x.src}" alt="${esc(T(x.titulo))}" loading="lazy"><span class="cap">${esc(T(x.titulo))}${x.canal?`<small>${esc(x.canal)}</small>`:""}</span></button>`).join("");
 
   // canais
   $("#chan").innerHTML=CANAIS.map(c=>{
@@ -599,6 +663,27 @@ function layDeck(){
     else{d.style.transform=`translate3d(${k*6}%, ${-k*5}%, ${-k*90}px) rotateY(-14deg) rotateZ(${k*2}deg)`;d.style.opacity=k>4?0:1;d.style.filter=`brightness(${1-k*.16})`;d.style.zIndex=20-k;}});
   document.querySelectorAll("#ddots button").forEach((b,i)=>b.setAttribute("aria-current",i===dTopo));
 }
+/* faixa de canais + frase que acende com a rolagem */
+const FAIXA=[["Emilly Vick","emilly-vicky","32.7M"],["Katlenof","katlenof","18.5M"],["Void X","void-x","746K"],["Antonela Braga","antonela-braga","194K"],["Leozinn Deu Play","leozinn-lemos","86K"],["Victor Nômade Nutella","victor-nomade-nutella","77K"],["Kaique Nômade","kaique-nomade",""],["Albbino","albbino",""]];
+const MOSAICO=["VEZ-RyPVkJk","kzO1vLPsTuY","teCZLRFOlaI","h_HO1Cl8ePY","gt2_XKcwvNA","8xGPS7JHm0I","DdpckM69HsQ"];
+function renderDinamico(){
+  $("#mtrack").innerHTML=[...FAIXA,...FAIXA].map(([n,f,x])=>`<div class="mchip"><img src="clientes/${f}.jpg" alt="" loading="lazy"><b>${esc(n)}</b>${x?`<small>${LANG==="en"?x:x.replace(".",",")}</small>`:""}</div>`).join("");
+  $("#frase").innerHTML=t("frase").map(x=>x[0]==="#"?`<span class="ph sx"><img src="clientes/${x.slice(1)}.jpg" alt=""></span>`:`<span class="w sx${x[0]==="*"?" hl":""}">${esc(x.replace("*",""))}</span>`).join(" ");
+  $("#mos").innerHTML=MOSAICO.map(v=>`<div class="t"><img src="${capa(v)}" data-id="${v}" alt="" loading="lazy" onerror="${fallback}"></div>`).join("");
+  updDinamico();
+}
+function updDinamico(){
+  const nav=$("#nav"), tb=document.querySelector(".topbar"); if(nav&&tb) nav.style.top=Math.max(12,tb.getBoundingClientRect().bottom+10)+"px";
+  const say=$("#say"); if(!say) return;
+  const r=say.getBoundingClientRect(); let q;
+  if(innerWidth<=900||matchMedia("(prefers-reduced-motion: reduce)").matches) q=r.top<innerHeight*.7?1:0;
+  else q=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-innerHeight)));
+  const ps=document.querySelectorAll("#frase .sx"), ts=document.querySelectorAll("#mos .t");
+  ps.forEach((el,i)=>el.classList.toggle("on",q*1.15>i/ps.length));
+  ts.forEach((el,i)=>el.classList.toggle("on",q*1.1>i/ts.length));
+  $("#spg").style.setProperty("--p",q*100+"%");
+}
+addEventListener("scroll",updDinamico,{passive:true}); addEventListener("resize",updDinamico);
 function aplicaFiltro(){
   document.querySelectorAll("#grid .item").forEach(el=>{el.hidden=!(filtro==="todos"||el.dataset.sub===filtro);});
 }
