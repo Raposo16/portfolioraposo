@@ -270,6 +270,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (max-width:640px){.nav .in{padding:6px 8px 6px 16px}.topbar{font-size:12.5px}}
 @media (prefers-reduced-motion:reduce){.mtrack{animation:none}.say .w,.say .ph,.mos .t{opacity:1!important;transform:none!important;filter:none!important}}
 
+/* pop-up de idioma */
+.lg{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(3,2,12,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lg.on{display:flex}
+.lg .bx{width:min(520px,100%);padding:30px clamp(20px,4vw,34px);border-radius:24px;border:1px solid #ffffff22;background:linear-gradient(160deg,#150d33,#0a0620);box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center;animation:lgin .5s var(--ease)}
+@keyframes lgin{from{transform:translateY(18px) scale(.97)}}
+.lg .brand{justify-content:center;margin-bottom:14px}
+.lg h2{font:800 clamp(24px,3.4vw,32px)/1.1 var(--disp);letter-spacing:-.02em}
+.lg p{color:var(--mut);font-size:14.5px;margin:8px 0 22px}
+.lg .opts{display:grid;gap:10px}
+.lg .opt{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:0 20px;border-radius:14px;border:1.5px solid var(--line);background:rgba(18,11,41,.7);font-size:17px;font-weight:600;transition:border-color .2s,transform .2s,background .2s}
+.lg .opt small{font:500 11px var(--mono);color:var(--mut);letter-spacing:.08em}
+.lg .opt:hover,.lg .opt:focus-visible{border-color:var(--or);transform:translateY(-2px)}
+.lg .opt.sug{border-color:var(--or);background:rgba(180,140,255,.14)}
+.lg .opt.sug small{color:var(--or)}
+
 /* janela */
 .viewer{position:fixed;inset:0;z-index:50;background:rgba(4,4,6,.92);display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px)}
 .viewer.on{display:flex}
@@ -431,6 +446,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <footer><div class="wrap"><span>© 2026 Raposo Edit · Felipe Raposo</span><span>@raposoedit</span></div></footer>
 
+<div class="lg" id="lg" role="dialog" aria-modal="true" aria-labelledby="lg-h">
+  <div class="bx">
+    <div class="brand"><span class="rp">raposo<b>.</b></span></div>
+    <h2 id="lg-h">Choose your language</h2>
+    <p>Escolha o idioma · Elige tu idioma</p>
+    <div class="opts">
+      <button class="opt" data-pick="en" lang="en"><span>English</span><small>EN</small></button>
+      <button class="opt" data-pick="pt" lang="pt-BR"><span>Português</span><small>PT</small></button>
+      <button class="opt" data-pick="es" lang="es"><span>Español</span><small>ES</small></button>
+    </div>
+  </div>
+</div>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title">
   <div class="box">
     <button class="close" id="close" aria-label="Fechar">✕</button>
@@ -733,7 +760,7 @@ document.addEventListener("keydown",e=>{
 function setLang(l){
   if(!LANGS.includes(l))l="pt"; LANG=l; filtro="todos";
   try{localStorage.setItem("raposo-lang",l)}catch(_){}
-  const u=new URL(location.href); u.searchParams.set("lang",l); history.replaceState(null,"",u);
+  const u=new URL(location.href); u.searchParams.set("lang",l); u.searchParams.delete("choose"); history.replaceState(null,"",u);
   renderAll(); observa();
 }
 function observa(){
@@ -752,6 +779,29 @@ if(!ini){
 }
 LANG=LANGS.includes(ini)?ini:"pt";
 renderAll(); observa();
+
+/* pop-up de idioma: aparece na primeira visita (ou com ?choose=1); sem escolha guardada nem ?lang= na URL */
+(function(){
+  const q=new URLSearchParams(location.search);
+  let saved=null; try{saved=localStorage.getItem("raposo-lang")}catch(_){}
+  const force=q.get("choose")==="1";
+  if(!force&&(saved||q.get("lang"))) return;
+  const lg=document.getElementById("lg"); if(!lg) return;
+  const sug=LANG;
+  lg.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sug",b.dataset.pick===sug));
+  const order=[sug,...["en","pt","es"].filter(x=>x!==sug)];
+  const box=lg.querySelector(".opts"); order.forEach(l=>box.appendChild(box.querySelector(`[data-pick="${l}"]`)));
+  const prev=document.activeElement;
+  const open=()=>{lg.classList.add("on");document.body.classList.add("lock");lg.querySelector(".opt").focus();};
+  const close=l=>{ if(l) setLang(l); else {try{localStorage.setItem("raposo-lang",LANG)}catch(_){}} lg.classList.remove("on");document.body.classList.remove("lock"); if(prev&&prev.focus) prev.focus(); };
+  lg.addEventListener("click",e=>{const b=e.target.closest("[data-pick]"); if(b) close(b.dataset.pick); else if(e.target===lg) close(null);});
+  document.addEventListener("keydown",e=>{ if(!lg.classList.contains("on")) return;
+    if(e.key==="Escape"){e.stopPropagation();close(null);}
+    if(e.key==="Tab"){const f=[...lg.querySelectorAll(".opt")],i=f.indexOf(document.activeElement);
+      if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus();} else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus();}}
+  },true);
+  setTimeout(open,350);
+})();
 </script>
 </body>
 </html>
