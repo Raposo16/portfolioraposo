@@ -479,10 +479,16 @@ const yt = (id, titulo, canal, sub, extra={}) => ({id, titulo, canal, sub,
   desc: L(`Edição para o canal ${canal}.`, `Editing for the ${canal} channel.`, `Edición para el canal ${canal}.`), ...extra});
 const VIDEOS = [
   yt("kzO1vLPsTuY", L("Esse jogo acabou com minha paciência (Level Devil #1)","This game ended my patience (Level Devil #1)","Este juego acabó con mi paciencia (Level Devil #1)"), "Leozinn Deu Play", SUB.games, {principal:true, desc:L("Edição e thumbnail para o canal Leozinn Deu Play.","Editing and thumbnail for the Leozinn Deu Play channel.","Edición y miniatura para el canal Leozinn Deu Play.")}),
+  yt("P378KlLbGTA", L("Fomos os primeiros do mundo a jogar GTA 6!","We were the first in the world to play GTA 6!","¡Fuimos los primeros del mundo en jugar GTA 6!"), "Potetos Deu Play", SUB.games),
+  yt("OV-ylnygKgg", L("Não jogue esse jogo às 3h da manhã","Don't play this game at 3 AM","No juegues este juego a las 3 de la mañana"), "Potetos Deu Play", SUB.games),
+  yt("AbwvD3kMCe0", L("Tentei limpar a Lua inteira com uma escova de dentes (Moon Sweepers)","I tried to clean the whole Moon with a toothbrush (Moon Sweepers)","Intenté limpiar toda la Luna con un cepillo de dientes (Moon Sweepers)"), "Potetos Deu Play", SUB.games),
+  yt("QXnHaYcERTU", L("Joguei Roblox com a Emilly, mas não pode nadar!","I played Roblox with Emilly, but you can't swim!","¡Jugué Roblox con Emilly, pero no se puede nadar!"), "Potetos Deu Play", SUB.games),
   yt("teCZLRFOlaI", L("Por dentro do hotel número 1 do mundo","Inside the world's #1 hotel","Dentro del hotel número 1 del mundo"), "Victor Nômade Nutella", SUB.viagem),
   yt("om2nfCoXRlk", L("Vlog do fim de semana","Weekend vlog","Vlog del fin de semana"), "Antonela Braga", SUB.vlogs),
   yt("h_HO1Cl8ePY", L("Saí na noite de Halloween nas Filipinas (e fui atacado)","I Went Out on Halloween Night in the Philippines (and got attacked)","Salí en la noche de Halloween en Filipinas (y me atacaron)"), "Kaique Nômade", SUB.viagem, {desc:L("Edição e thumbnail para o canal Kaique Nômade.","Editing and thumbnail for the Kaique Nômade channel.","Edición y miniatura para el canal Kaique Nômade.")}),
   yt("VEZ-RyPVkJk", L("Eating One Color Food For 24 Hours","Eating One Color Food For 24 Hours","Eating One Color Food For 24 Hours"), "Taj and B Family", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
+  yt("aVg9EVSKEI4", L("Can I survive 24 hours of GTA 6 without my wife losing it?","Can I survive 24 hours of GTA 6 without my wife losing it?","Can I survive 24 hours of GTA 6 without my wife losing it?"), "Taj and B Family", SUB.infantil),
+  yt("itXl2HKcY_c", L("Our Son is Moving Out...","Our Son is Moving Out...","Our Son is Moving Out..."), "Taj and B Family", SUB.infantil),
   yt("rTHDaHe5RPc", L("Aprimoramento de edição","Editing enhancement","Mejora de edición"), "Felipe Raposo", SUB.aprim, {aviso:true, desc:L("Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.","Editing enhancement of an existing channel's video.")}),
   yt("gt2_XKcwvNA", L("Treinei perna com um Classic Physique e passei mal","I trained legs with a Classic Physique athlete and felt sick","Entrené pierna con un Classic Physique y me sentí mal"), "Albbino", SUB.fitness),
   yt("kI4MBIVZYrw", L("Sobrevivi às experiências mais perigosas de Bali","I survived Bali's most dangerous experiences","Sobreviví a las experiencias más peligrosas de Bali"), "Victor Nômade Nutella", SUB.viagem),
@@ -618,9 +624,9 @@ function renderAll(){
 }
 /* vitrine giratória: ordem = VITRINE; começa no do meio (Leozinn) */
 const AVISO="Notice: this is an editing enhancement of an existing channel's video.";
-const VITRINE_PT=["kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","VEZ-RyPVkJk","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI","pNpMRCMHWjU"];
+const VITRINE_PT=["kzO1vLPsTuY","P378KlLbGTA","aVg9EVSKEI4","OV-ylnygKgg","AbwvD3kMCe0","QXnHaYcERTU","h_HO1Cl8ePY","om2nfCoXRlk","VEZ-RyPVkJk","itXl2HKcY_c","rTHDaHe5RPc","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI","pNpMRCMHWjU"];
 /* em inglês, o vídeo de aprimoramento abre no centro; Victor fica à esquerda e Leozinn à direita */
-const VITRINE_EN=["VEZ-RyPVkJk","rTHDaHe5RPc","kzO1vLPsTuY","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI","pNpMRCMHWjU"];
+const VITRINE_EN=["itXl2HKcY_c","aVg9EVSKEI4","VEZ-RyPVkJk","rTHDaHe5RPc","kzO1vLPsTuY","P378KlLbGTA","OV-ylnygKgg","AbwvD3kMCe0","QXnHaYcERTU","h_HO1Cl8ePY","om2nfCoXRlk","gt2_XKcwvNA","kI4MBIVZYrw","8xGPS7JHm0I","DdpckM69HsQ","teCZLRFOlaI","pNpMRCMHWjU"];
 let VITRINE=VITRINE_PT;
 let atual=0;
 function renderVitrine(){
